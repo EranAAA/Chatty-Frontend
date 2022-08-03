@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux/es/exports'
 
-export const SignUp = ({ signUp, users }) => {
 
+export const SignUp = () => {
+   const dispatch = useDispatch()
+   let { users } = useSelector(({ userModule }) => userModule)
    const [username, setUsername] = useState('')
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [isExist, setIsExist] = useState(false)
-
    const handleChange = ({ target, users }) => {
       if (target.name === 'username') setUsername(target.value)
       if (target.name === 'email') setEmail(target.value)
       if (target.name === 'password') setPassword(target.value)
    }
 
-   const onSignup = () => {
+   const onSignup = async () => {
       if (isUserExist()) return setIsExist(true)
-      signUp({ fullname: username, username: email, password })
+      // const newUser = await dispatch(signUp({ fullname: username, username: email, password }))
    }
 
    const isUserExist = () => {
@@ -30,7 +32,7 @@ export const SignUp = ({ signUp, users }) => {
          <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />
          <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} />
          <button onClick={onSignup}>Submit</button>
-         {isExist && <Link to="user-auth/sign-in">LogIn</Link> }
+         {isExist && <Link to="/sign-in">LogIn</Link> }
       </section>
    )
 
