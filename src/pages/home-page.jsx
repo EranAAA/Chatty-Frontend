@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
 import { loadUsers } from '../store/actions/user.action.js'
-import { SignUp } from '../cmps/sign-up'
+import { SignUp } from './sign-up'
 
 export const Homepage = () => {
     const dispatch = useDispatch()
