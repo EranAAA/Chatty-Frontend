@@ -5,7 +5,8 @@ import { userService } from "../services/user.service.js"
 
 export const SignInUp = () => {
    const dispatch = useDispatch()
-   const users = useSelector(({ userReducer }) => userReducer)
+   // let {users} = useSelector((storeState) => storeState.userModule)
+   let {users} = useSelector((userModule) => userModule)
 
    useEffect(() => {
       loadData()
@@ -14,7 +15,7 @@ export const SignInUp = () => {
    const loadData = async () => {
       await dispatch(loadUsers())
    }
-
+   console.log(users)
    return (
       <div>
          <h1>Hello from SignInUp</h1>
