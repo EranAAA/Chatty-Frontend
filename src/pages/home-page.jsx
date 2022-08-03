@@ -1,11 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Homepage = () => {
     return (
         <div>
             <h1>Hello from homepage</h1>
-            <Link to="/signIn-signUp">LogIn</Link>
+            <Link to="/user-auth">LogIn</Link>
         </div>
     )
 }
