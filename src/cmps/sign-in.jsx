@@ -23,12 +23,12 @@ export const SignIn = () => {
    // }
 
    return (
-      <section className="sign-up">
-         <h1>Hello from Signup</h1>
+      <section className="sign-up container">
+         <h1>Hello from Signin</h1>
          <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />
          <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} />
          <button onClick={onLogIn}>Submit</button>
-         {!isExist && <Link to="/sign-up">Sign In</Link> }
+         {!isExist && <Link to="/sign-up">Sign Up</Link> }
       </section>
    )
 

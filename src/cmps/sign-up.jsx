@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux/es/exports'
 
 export const SignUp = () => {
    const dispatch = useDispatch()
-   let { users } = useSelector(({ userModule }) => userModule)
+   const { users } = useSelector(({ userModule }) => userModule)
    const [username, setUsername] = useState('')
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
@@ -16,8 +16,10 @@ export const SignUp = () => {
       if (target.name === 'password') setPassword(target.value)
    }
 
+   
    const onSignup = async () => {
       if (isUserExist()) return setIsExist(true)
+      console.log('signup')
       // const newUser = await dispatch(signUp({ fullname: username, username: email, password }))
    }
 
@@ -26,7 +28,7 @@ export const SignUp = () => {
    }
 
    return (
-      <section className="sign-up">
+      <section className="sign-up container">
          <h1>Hello from Signup</h1>
          <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} />
          <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />

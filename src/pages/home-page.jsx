@@ -8,7 +8,6 @@ import { SignUp } from '../cmps/sign-up'
 export const Homepage = () => {
     const dispatch = useDispatch()
 
-
     useEffect(() => {
         loadData()
      }, [])
@@ -19,7 +18,7 @@ export const Homepage = () => {
 
 
     return (
-        <div>
+        <div className="homepage container">
             <h1>Hello from homepage</h1>
             <Link to="/sign-in">LogIn</Link>
             <Link to="/sign-up">SignUp</Link>
