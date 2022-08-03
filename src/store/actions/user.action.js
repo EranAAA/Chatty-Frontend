@@ -11,3 +11,13 @@ export const loadUsers = () => {
       console.log('UserActions: err in loadUsers', err)
    }
 }
+
+export const setLoggedUser = (user) => {
+   try {
+      return (dispatch) => {
+         dispatch({ type: 'SET_LOGGED_USER', user })
+      }
+   } catch (err) {
+      console.log('UserActions: err in loadUsers', err)
+   }
+}

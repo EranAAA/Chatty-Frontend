@@ -2,15 +2,16 @@ import { userService } from '../../services/user.service.js'
 
 const initialState = {
     // loggedInUser: userService.getLoggedinUser() || null,
+    loggedInUser: '',
     users: [],
 }
 
 export function userReducer(state = initialState, action) {
     let newState = state
     switch (action.type) {
-        // case 'SET_LOGGED_USER':
-        //     newState = { ...state, loggedInUser: action.user }
-        //     break
+        case 'SET_LOGGED_USER':
+            newState = { ...state, loggedInUser: action.user }
+            break
         // case 'SET_USER':
         //     newState = { ...state, loggedInUser: action.user }
         //     break
