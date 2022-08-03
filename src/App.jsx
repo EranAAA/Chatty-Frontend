@@ -1,12 +1,13 @@
 import React from 'react'
 import routes from './routes.js'
 import { Routes, Route } from 'react-router'
+import '../src/assets/scss/main.scss'
 
 export const App = () => {
    return (
       <div className="App">
          <header>
-            <h1>app-header</h1>
+            {/* <h1>app-header</h1> */}
          </header>
          <main className="routes-container">
             <Routes>
@@ -18,7 +19,7 @@ export const App = () => {
             </Routes>
          </main>
          <footer>
-            <h1>Footer</h1>
+            {/* <h1>Footer</h1> */}
          </footer>
 
       </div>

@@ -1,15 +1,13 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 import { App } from './App'
-import reportWebVitals from './reportWebVitals';
-import '../src/assets/scss/main.scss'
+// import reportWebVitals from './reportWebVitals';
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+const container = document.getElementById('root')
+const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
