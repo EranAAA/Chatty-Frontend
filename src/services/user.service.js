@@ -1,6 +1,6 @@
 
 export const userService = {
-    getUsers
+    getUsers,
 }
 
 function getUsers() {
@@ -14,6 +14,7 @@ function getUsers() {
                 _id: 102,
                 fullName: 'orgeva'
             }],
+            msgId: ['msg101'],
             isAdmin: false
         },
         {
@@ -25,6 +26,7 @@ function getUsers() {
                 _id: 101,
                 fullName: 'ronenberger'
             }],
+            msgId: ['msg101', 'msg102'],
             isAdmin: true
         },
         {
@@ -42,9 +44,8 @@ function getUsers() {
                     fullName: 'ronenberger'
                 }
             ],
+            msgId: ['msg102'],
             isAdmin: false
         },
     ]
 }
-
-

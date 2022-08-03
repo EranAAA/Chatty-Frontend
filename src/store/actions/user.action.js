@@ -12,6 +12,7 @@ export const loadUsers = () => {
    }
 }
 
+<<<<<<< HEAD
 export function login(credentials) {
     return async (dispatch) => {
         try {
@@ -30,3 +31,14 @@ export function login(credentials) {
         }
     }
 }
+=======
+export const setLoggedUser = (user) => {
+   try {
+      return (dispatch) => {
+         dispatch({ type: 'SET_LOGGED_USER', user })
+      }
+   } catch (err) {
+      console.log('UserActions: err in loadUsers', err)
+   }
+}
+>>>>>>> 185fd8b618da0e95bf5c8307a23cfe4234b1959b

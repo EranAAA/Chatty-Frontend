@@ -1,26 +1,41 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
+import { setLoggedUser } from '../store/actions/user.action.js'
 
 export const SignUp = () => {
+
    const dispatch = useDispatch()
+   const navigate = useNavigate();
+
    const { users } = useSelector(({ userModule }) => userModule)
+
+   useEffect(() => {
+      if(!users) return navigate(`../`);
+  }, [])
+
    const [username, setUsername] = useState('')
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [isExist, setIsExist] = useState(false)
+
    const handleChange = ({ target, users }) => {
       if (target.name === 'username') setUsername(target.value)
       if (target.name === 'email') setEmail(target.value)
       if (target.name === 'password') setPassword(target.value)
    }
 
-   
    const onSignup = async () => {
       if (isUserExist()) return setIsExist(true)
       console.log('signup')
-      // const newUser = await dispatch(signUp({ fullname: username, username: email, password }))
+      // const newUser = await dispatch(signUp({ username, email, password }))
+      dispatch(setLoggedUser({ username, email  }))
+      // navigate(`../chatty-app/${/*newUser._id*/ 123548654}`, { replace: true });
+      navigate(`../chatty-app`);
+      setIsExist(false)
+
+
    }
 
    const isUserExist = () => {
@@ -30,11 +45,15 @@ export const SignUp = () => {
    return (
       <section className="sign-up container">
          <h1>Hello from Signup</h1>
-         <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} />
-         <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />
-         <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} />
+         <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} required autocomplete="off"/>
+         <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} required autocomplete="off"/>
+         <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} required autocomplete="off"/>
          <button onClick={onSignup}>Submit</button>
-         {isExist && <Link to="/sign-in">LogIn</Link> }
+         {isExist &&
+            <div>
+               You already a user, move to
+               <Link to="/sign-in"> Login</Link>
+            </div>}
       </section>
    )
 
