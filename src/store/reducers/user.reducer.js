@@ -9,21 +9,12 @@ const initialState = {
 export function userReducer(state = initialState, action) {
     let newState = state
     switch (action.type) {
-<<<<<<< HEAD
-        // case 'SET_LOGGED_USER':
-        //     newState = { ...state, loggedInUser: action.user }
-        //     break
-        case 'SET_USER':
-            newState = { ...state, loggedInUser: action.user }
-            break
-=======
         case 'SET_LOGGED_USER':
             newState = { ...state, loggedInUser: action.user }
             break
-        // case 'SET_USER':
-        //     newState = { ...state, loggedInUser: action.user }
-        //     break
->>>>>>> 185fd8b618da0e95bf5c8307a23cfe4234b1959b
+        case 'SET_USER':
+            newState = { ...state, loggedInUser: action.user }
+            break
         // case 'REMOVE_USER':
         //     newState = {
         //         ...state,

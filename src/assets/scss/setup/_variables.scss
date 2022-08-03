@@ -1,26 +1,20 @@
 // sass-lint:disable no-color-literals
-$primary: 'primary';
-$primary_600: #3FCA89;
-$primary_500: #62D49F;
+$white:        #fff;
+$dark-gray:    #333;
+$main-gray:    #ededed;
+$light-gray:   #f7f7f7;
+$dark-green:   #009688;
+$info-message: rgba(225,245,254,.92);
 
-$grey_1100: #404145;
-$grey_1000: #62646A;
-$grey_900: #74767E;
-$grey_800: #95979D;
-$grey_700: #B5B6BA;
-$grey_600: #C5C6C9;
-$grey_500: #DADBDD;
-$grey_400: #E4E5E7;
-$grey_300: #EFEFF0;
-$grey_200: #F5F5F5;
-$grey_100: #FAFAFA;
-$wiserr_error: #F74040;
-$wiserr_success: #19A463;
-$wiserr_green: #1DBF73;
-$black: #000;
-$white: #fff;
-$wiserr_business: #0d084d;
 
+/* Responsive Variables */
+$break1:     "(min-width: 320px) and (max-width:767px)";
+$break1open: "(max-width:320px)";
+$break2:     "(min-width:768px) and (max-width:1023px)";
+$break2open: "(min-width:768px)";
+$break3:     "(min-width:1024px) and (max-width:1439px)"; 
+$break3open: "(min-width:1024px)";
+$break4open: "(min-width:1440px)";
 
 $mobile-viewport: 600px; 
 $tablet-viewport: 900px;
@@ -28,5 +22,37 @@ $narrow-viewport: 1200px;
 $normal-viewport: 1400px;
 $wide-viewport: 1800px;
 $extra-wide-viewport: 2200px;
+
+
+/* mobile-viewport */
+@media #{$break1}{
+    html{ font-size: 1.2px; }
+}
+
+@media #{$break1open}{
+    html{ font-size: 1.4px; }
+}
+
+/* tablet-viewpor */
+@media #{$break2}{
+    html{ font-size: 1.6px; }
+}
+
+@media #{$break2open}{
+    html{ font-size: 1.8px; }
+}
+
+/* narrow-viewport */
+@media #{$break3}{
+    html{ font-size: 2px; }
+}
+@media #{$break3open}{
+    html{ font-size: 2.2px; }
+}
+
+/* normal-viewport */
+@media #{$break4open}{
+    html{ font-size: 2.6px; }
+}
 
 

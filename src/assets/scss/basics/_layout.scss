@@ -53,7 +53,6 @@
     
 }
 
-
     .middle-section {
         display: grid;
         grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1400px) minmax(3rem, 1fr);
@@ -67,7 +66,6 @@
             grid-column: 1/-1;
         }
     }
-
 
 
 // $mobile-viewport: 600px; 

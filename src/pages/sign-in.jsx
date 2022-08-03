@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { loadUsers } from '../store/actions/user.action.js'
+import { loadUsers, setLoggedUser} from '../store/actions/user.action.js'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -7,20 +7,21 @@ export const SignIn = () => {
    // const { users } = useSelector(({ userModule }) => userModule)
    const { users } = useSelector((storeState) => storeState.userModule)
 
-   const [data, setData] = useState({
-      email: '',
-      password: ''
-   })
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [isExist, setIsExist] = useState(false)
-   const [isLogin, setIsLogin] = useState(false)
+   let [isLogin, setIsLogin] = useState(false)
    const navigate = useNavigate()
    const dispatch = useDispatch()
 
    useEffect(() => {
       loadData()
+      if(!users) return navigate(`../`);
    }, [])
+
+//    useEffect(() => {
+//       if(!users) return navigate(`../`);
+//   }, [])
 
    const loadData = async () => {
       await dispatch(loadUsers())
@@ -29,12 +30,13 @@ export const SignIn = () => {
    const handleChange = ({ target, users }) => {
       if (target.name === 'email') setEmail(target.value)
       if (target.name === 'password') setPassword(target.value)
-      // setData({ ...data, email: email, password: password })
-      setData({ email: email, password: password })
+      // dispatch(setLoggedUser({ username: 'Test', email }))
+      dispatch(setLoggedUser({ email: email, password: password }))
    }
 
    const onLogIn = (users) => {
-      const isLogin = users.find(user => (user.email === data.email && user.password === data.password))
+      debugger
+      isLogin = users.find(user => (user.email === email && user.password === password))
       setIsLogin(true)
       if (isLogin) {
          navigate('/chat')
