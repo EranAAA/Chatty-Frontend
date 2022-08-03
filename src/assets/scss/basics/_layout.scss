@@ -1,0 +1,78 @@
+.container {
+    // padding-inline-start: calc((100vw - #{$mobile-viewport}) / 2); // max-600px
+    // padding-inline-end: calc((100vw - #{$mobile-viewport}) / 2); // max-600px
+    // padding-right: calc(32px + 1.5625vw);
+    // padding-left: calc(32px + 1.5625vw);
+    padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    
+    @include from-tablet-layout {
+        // padding-inline-start: calc((100vw - #{$tablet-viewport}) / 2); //max-900px
+        // padding-inline-end: calc((100vw - #{$tablet-viewport}) / 2); //max-900px
+        // padding-right: calc(32px + 1.5625vw);
+        // padding-left: calc(32px + 1.5625vw);
+        padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+        padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    }
+    
+    @include from-narrow-layout {
+        padding-inline-start: calc((110vw - #{$narrow-viewport}) / 2); //max-1200px
+        padding-inline-end: calc((110vw - #{$narrow-viewport}) / 2); //max-1200px
+        // padding-right: calc(32px + 1.5625vw);
+        // padding-left: calc(32px + 1.5625vw);
+        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    }
+
+    @include from-normal-layout {
+        padding-inline-start: calc((110vw - #{$normal-viewport}) / 2); //max-1200px
+        padding-inline-end: calc((110vw - #{$normal-viewport}) / 2); //max-1200px
+        // padding-right: calc(32px + 1.5625vw);
+        // padding-left: calc(32px + 1.5625vw);
+        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    }
+    
+    @include from-wide-layout {
+        padding-inline-start: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+        padding-inline-end: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+        // padding-right: calc(32px + 1.5625vw);
+        // padding-left: calc(32px + 1.5625vw);
+        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    }
+
+    @include from-extra-wide-layout {
+        padding-inline-start: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+        padding-inline-end: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+        // padding-right: calc(32px + 1.5625vw);
+        // padding-left: calc(32px + 1.5625vw);
+        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    }
+    
+}
+
+
+    .middle-section {
+        display: grid;
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1400px) minmax(3rem, 1fr);
+        > *{
+            grid-column: 2;
+        }
+        > :first-child {
+            grid-column: 1/-1;
+        }
+        >:nth-child(even) {
+            grid-column: 1/-1;
+        }
+    }
+
+
+
+// $mobile-viewport: 600px; 
+// $tablet-viewport: 900px;
+// $narrow-viewport: 1200px;
+// $normal-viewport: 1400px;
+// $wide-viewport: 1800px;
+// $extra-wide-viewport: 2200px;
