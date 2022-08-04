@@ -11,8 +11,11 @@ function getChats() {
          chat: [
             {
                userId: '101',
+               isOnline: false,
                msg: 'hey',
-               createdAt: ''
+               createdAt: '',
+               isUser: false,
+               isSeen: true,
             },
             {
                userId: '102',

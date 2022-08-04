@@ -15,7 +15,8 @@ function getUsers() {
                 fullName: 'orgeva'
             }],
             msgId: ['msg101'],
-            isAdmin: false
+            isAdmin: false,
+            profileImg:''
         },
         {
             _id: 102,
@@ -49,3 +50,5 @@ function getUsers() {
         },
     ]
 }
+
+

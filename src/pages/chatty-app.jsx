@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
 
+
 export const ChattyApp = () => {
 
     const dispatch = useDispatch()
@@ -23,18 +24,22 @@ export const ChattyApp = () => {
     }
 
     return (
-        <div className="chatty-app container">
+        <section class="main-grid container">
+            <aside class="main-side">
+                <ChattySideBar />
+            </aside>
+            <main class="main-content">
+                <ChattyHeader />
+            </main>
 
-            {/* AppHeader */}
-            <ChattyHeader/>
-            
             <h1>Hello from ChattApp</h1>
             <h1>{loggedInUser.username}</h1>
             <h1>{loggedInUser.email}</h1>
-
-            {/* SideBar */}
-            <ChattySideBar/>
-            {/* ChatBoard */}
-        </div>
+        </section>
     )
 }
+
+
+
+
+

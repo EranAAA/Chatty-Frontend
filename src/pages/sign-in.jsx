@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { loadUsers, setLoggedUser } from '../store/actions/user.action.js'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const SignIn = () => {
    // const { users } = useSelector(({ userModule }) => userModule)
