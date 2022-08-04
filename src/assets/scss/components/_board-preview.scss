@@ -1,0 +1,22 @@
+.board-preview {
+   padding: 10px;
+   
+   .user-msg {
+      display: inline;
+      max-width: 50%;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 0px;
+      background-color: aquamarine;
+
+   }
+
+   .friend-msg {
+      display: inline;
+      max-width: 50%;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 0px;
+      background-color: bisque;
+   }
+}

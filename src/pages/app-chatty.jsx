@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
+
+import { loadChats } from '../store/actions/chat.action'
 
 import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
@@ -12,16 +14,16 @@ export const ChattyApp = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
-    const { loggedInUser } = useSelector(({ userModule }) => userModule)
+    const { users, loggedInUser } = useSelector(({ userModule }) => userModule)
+    const { chats } = useSelector(({ chatModule }) => chatModule)
 
     useEffect(() => {
         if (!loggedInUser) return navigate(`../`);
-
-        // loadData()
+        loadData()
     }, [])
 
     const loadData = async () => {
-        // await dispatch(loadUsers())
+        await dispatch(loadChats())
     }
 
     return (
@@ -32,11 +34,11 @@ export const ChattyApp = () => {
             </header>
 
             <aside className="chatty-side">
-                <ChattySideBar />
+                <ChattySideBar loggedInUser={loggedInUser} chats={chats}/>
             </aside>
 
             <main className='chatty-board'>
-                <ChattyBoard />
+                <ChattyBoard chats={chats}/>
             </main>
 
         </section>

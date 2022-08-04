@@ -11,7 +11,12 @@
 // COMPONENTS
 @import './components/app-header';
 @import './components/app-footer';
+
 @import './components/chatty-board';
+@import './components/board-list';
+@import './components/board-preview';
+
+@import './components/chatty-side-bar';
 
 // PAGES
 @import './pages/app-chatty';

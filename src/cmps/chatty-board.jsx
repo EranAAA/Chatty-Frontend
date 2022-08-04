@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { MessageBox } from './template/message-box.jsx'
 
-export const ChattyBoard = () => {
+import { MessageBox } from './template/message-box.jsx'
+import { BoardList } from './board-list'
+
+export const ChattyBoard = ({ chats }) => {
+
+   if (!chats.length) return
 
    return (
       <>
-         <h1>Hello chat board</h1>
-         <ol className="messenger-list">
-            <li className="common-message time is-you">
-               <p className="common-message-content">
-                  This is Today
-               </p>
-               <span className="status is-seen">✔️✔️</span>
-               <time dateTime='true'>14:11</time>
-            </li>
-         </ol>
+         <BoardList chats={chats[0].chat} />
+
          <div className="message-box-container">
             <MessageBox />
          </div>

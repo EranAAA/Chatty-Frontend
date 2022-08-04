@@ -1,72 +1,25 @@
+import { httpService } from './http.service'
+const axios = require('axios').default;
 
 export const chatService = {
+   createChat,
    getChats
 }
 
-function getChats() {
-   return [
-      {
-         _id: 'msg101',
-         createdAt: '',
-         chat: [
-            {
-               userId: '101',
-               msg: 'hey',
-               createdAt: '',
-               isSeen: true,
-            },
-            {
-               userId: '102',
-               msg: 'hey!',
-               createdAt: '',
-               isSeen: true,
-            },
-            {
-               userId: '101',
-               msg: 'bye!',
-               createdAt: '',
-               isSeen: true,
-            },
-            {
-               userId: '102',
-               msg: 'bye fucker',
-               createdAt: '',
-               isSeen: true,
-            }
-         ]
-      },
-      {
-         _id: 'msg102',
-         createdAt: '',
-         chat: [
-            {
-               userId: '103',
-               msg: 'hey',
-               createdAt: '',
-               isSeen: false,
-            },
-            {
-               userId: '102',
-               msg: 'hey!',
-               createdAt: '',
-               isSeen: false,
-            },
-            {
-               userId: '103',
-               msg: 'bye!',
-               createdAt: '',
-               isSeen: false,
-            },
-            {
-               userId: '102',
-               msg: 'bye fucker',
-               createdAt: '',
-               isSeen: false,
-            }
-         ]
-      },
+async function getChats() {
+   try {
+      return await httpService.get(`chat`)
+   } catch (err) {
+      console.log('cant chat query');
+      throw err
+   }
+}
 
-   ]
+function createChat() {
+   return {
+      createdAt: '',
+      chat: []
+   }
 }
 
 

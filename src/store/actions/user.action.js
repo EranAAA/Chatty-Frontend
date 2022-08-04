@@ -13,37 +13,37 @@ export const loadUsers = () => {
 }
 
 export function login(credentials) {
-    return async (dispatch) => {
-        try {
-            const user = await userService.login(credentials)
-            dispatch({
-                type: 'SET_USER',
-                user
-            })
-            return user
-        } catch (err) {
-            // console.error('Error - cannot login:', err)
-            console.log('Username or password invalid')
-            throw err
-        }
-    }
+   return async (dispatch) => {
+      try {
+         const user = await userService.login(credentials)
+         dispatch({
+            type: 'SET_USER',
+            user
+         })
+         return user
+      } catch (err) {
+         // console.error('Error - cannot login:', err)
+         console.log('Username or password invalid')
+         throw err
+      }
+   }
 }
 
 export function signup(credentials) {
-    return async (dispatch) => {
-        try {
-            const user = await userService.signup(credentials)
-            dispatch({
-                type: 'SET_USER',
-                user
-            })
-            return user
-        } catch (err) {
-            // console.error('Error - cannot login:', err)
-            console.log('Username or password invalid')
-            throw err
-        }
-    }
+   return async (dispatch) => {
+      try {
+         const user = await userService.signup(credentials)
+         dispatch({
+            type: 'SET_USER',
+            user
+         })
+         return user
+      } catch (err) {
+         // console.error('Error - cannot login:', err)
+         console.log('Username or password invalid')
+         throw err
+      }
+   }
 }
 
 export const setLoggedUser = (user) => {
