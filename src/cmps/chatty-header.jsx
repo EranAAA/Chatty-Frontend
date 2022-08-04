@@ -6,7 +6,7 @@ export const ChattyHeader = () => {
 
    return (
       <>
-         <header class="common-header">
+         <header className="common-header">
             <h1>chatty-header</h1>
          </header>
       </>
