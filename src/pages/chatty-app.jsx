@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux/es/exports'
 
 import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
-import { ChattyBoard } from '../cmps/chatty-board'
+import { ChattyBoard } from '../cmps/chatty-board.jsx'
 
 
 export const ChattyApp = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { MessageBox } from './message-box.jsx'
 
-export const ChatBoard = () => {
+export const ChattyBoard = () => {
 
    return (
       <>
