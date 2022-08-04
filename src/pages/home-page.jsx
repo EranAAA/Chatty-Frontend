@@ -13,7 +13,7 @@ export const Homepage = () => {
      }, [])
   
      const loadData = async () => {
-        await dispatch(loadUsers())
+        const users = await dispatch(loadUsers())
      }
 
 

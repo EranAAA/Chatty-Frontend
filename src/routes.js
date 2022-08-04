@@ -5,10 +5,6 @@ import { ChattyApp } from '../src/pages/chatty-app'
 
 const routes = [
     {
-        path: '/chat',
-        component: <ChattyApp />,
-    },
-    {
         path: '/sign-in',
         component: <SignIn />,
     },

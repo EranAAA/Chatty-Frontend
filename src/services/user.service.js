@@ -1,65 +1,111 @@
+import { httpService } from './http.service'
+const axios = require('axios').default;
 
 export const userService = {
-    getUsers,
+   login,
+   logout,
+   signup,
+   getLoggedinUser,
+   userQuery,
+   remove,
+   addToCart,
+   getUsers,
+   createUser
 }
 
-function getUsers() {
-    return [
-        {
-            _id: 101,
-            username: 'ronen',
-            password: 'r123',
-            email: 'ronenberger@gmail.com',
-            friends: [{
-                _id: 102,
-                fullName: 'orgeva'
-            }],
-            msgId: ['msg101'],
-            isAdmin: false,
-            profileImg:'',
-            isOnline: false,
-            imgUrl: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1657190502/de4ec514-64fb-48c3-85a5-e02a5a5238da_xayfuq.webp",    
-        },
-        {
-            _id: 102,
-            username: 'or',
-            password: 'o123',
-            email: 'orgeva@gmail.com',
-            friends: [{
-                _id: 101,
-                fullName: 'ronenberger'
-            }],
-            msgId: ['msg101', 'msg102'],
-            isAdmin: true,
-            isOnline: false,
-            imgUrl: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1657190166/66171d9a-52b4-456b-a26f-c142ba33913a_efj8y1.webp",
+// Get loged user from sessionStorage
+function getLoggedinUser() {
+   const user = JSON.parse(sessionStorage.getItem('loggedinUser'))
+   return user
+}
 
-        },
-        {
-            _id: 103,
-            username: 'noga',
-            password: 'n123',
-            email: 'nogashalev@gmail.com',
-            friends: [
-                {
-                    _id: 101,
-                    fullName: 'orgeva'
-                },
-                {
-                    _id: 102,
-                    fullName: 'ronenberger'
-                }
-            ],
-            msgId: ['msg102'],
-            isAdmin: false,
-            isOnline: false,
-            imgUrl: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1657190455/c6714639-3d34-4a5a-9739-3a72597ae4ec_ud5587.webp",
+function createUser() {
+   return {
+      username: '',
+      password: '',
+      email: '',
+      friends: [],
+      msgId: [],
+      isAdmin: false,
+      isOnline: false,
+      imgUrl: '',
+   }
 
-        },
-    ]
+}
+
+async function getUsers() {
+   try {
+      return await httpService.get(`user`)
+   } catch (err) {
+      console.log('cant user query');
+      throw err
+   }
+}
+
+// Request (Rest:POST) login
+async function login(credentials) {
+   // waiting from the user if success to login
+   try {
+      const user = await httpService.post(`auth/login`, credentials)
+      sessionStorage.setItem('loggedinUser', JSON.stringify(user))
+      return user
+   } catch (err) {
+      console.log('cant login');
+      throw err
+   }
+}
+
+// Request (Rest:POST) signup
+async function signup(credentials) {
+   // waiting from the user if success to login
+   try {
+      const user = await httpService.post(`auth/signup`, credentials)
+      sessionStorage.setItem('loggedinUser', JSON.stringify(user))
+      return user
+   } catch (err) {
+      console.log('cant signup');
+      throw err
+   }
+}
+
+// Request (Rest:POST) logout
+async function logout() {
+   try {
+      await httpService.post(`auth/logout`)
+      sessionStorage.removeItem('loggedinUser')
+   } catch (err) {
+      console.log('cant delete user');
+      throw err
+   }
+}
+
+async function userQuery() {
+   try {
+      return await httpService.get(`users`)
+   } catch (err) {
+      console.log('cant user query');
+      throw err
+   }
+}
+
+async function remove(userId) {
+   try {
+      return await httpService.delete(`users/${userId}`)
+   } catch (err) {
+      console.log('cant delete user');
+      throw err
+   }
+}
+
+async function addToCart(cart) {
+   try {
+      return await httpService.put(`cart/`, cart)
+   } catch (err) {
+      console.log('cant add to cart');
+      throw err
+   }
 }
 
 
-      
-       
-     
+
+

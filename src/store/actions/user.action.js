@@ -20,6 +20,7 @@ export function login(credentials) {
                 type: 'SET_USER',
                 user
             })
+            return user
         } catch (err) {
             console.error('Error - cannot login:', err)
             console.log('Username or password invalid')

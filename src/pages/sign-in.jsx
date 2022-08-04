@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { loadUsers, setLoggedUser } from '../store/actions/user.action.js'
+import { loadUsers, setLoggedUser, login } from '../store/actions/user.action.js'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,13 +10,13 @@ export const SignIn = () => {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [isExist, setIsExist] = useState(false)
-   let [isLogin, setIsLogin] = useState(false)
+
    const navigate = useNavigate()
    const dispatch = useDispatch()
 
    useEffect(() => {
       loadData()
-      if (!users) return navigate(`../`);
+      // if (!users) return navigate(`../`);
    }, [])
 
 
@@ -30,21 +30,18 @@ export const SignIn = () => {
       dispatch(setLoggedUser({ email: email, password: password }))
    }
 
-   const onLogIn = (users) => {
+   const onLogIn = async () => {
       isUserExist()
-      isLogin = users.find(user => (user.email === email && user.password === password))
-
-      if (isLogin) navigate('/chat')
+      const loggedUser = await dispatch(login({email, password}))
+      console.log('loggedUser', loggedUser);
+      debugger
+      if (loggedUser) navigate('/chatty-app')
       else console.log("Wrong password or email")
-
-      setIsLogin(true)
    }
 
    const isUserExist = () => {
       setIsExist(users.some(user => user.email === email))
-      if (!isExist) {
-         navigate('/sign-up')
-      }
+      if (!isExist) navigate('/sign-up')
    }
 
    return (
@@ -52,7 +49,7 @@ export const SignIn = () => {
          <h1>Hello from Signin</h1>
          <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />
          <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} />
-         <button onClick={() => onLogIn(users)}>Login</button>
+         <button onClick={onLogIn}>Login</button>
       </section>
    )
 
