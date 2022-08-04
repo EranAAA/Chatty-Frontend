@@ -15,7 +15,7 @@ export const ChattyBoard = () => {
                <time dateTime='true'>14:11</time>
             </li>
          </ol>
-         <div className="message-box">
+         <div className="message-box-container">
             <MessageBox />
          </div>
       </>

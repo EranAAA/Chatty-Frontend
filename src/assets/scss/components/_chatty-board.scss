@@ -1,0 +1,9 @@
+.chatty-board {
+    position: relative;
+
+    .message-box-container {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+}

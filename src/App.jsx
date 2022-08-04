@@ -12,7 +12,7 @@ export const App = () => {
          <header className="app-header-container container"> 
             <AppHeader/>
          </header>
-         <main className="routes-container container">
+         <main className="routes-container">
             <Routes>
                {routes.map(route =>
                   <Route key={route.path}

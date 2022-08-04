@@ -6,22 +6,21 @@ import { loadUsers } from '../store/actions/user.action.js'
 import { SignUp } from './app-sign-up'
 
 export const Homepage = () => {
-    const dispatch = useDispatch()
+   const dispatch = useDispatch()
 
-    useEffect(() => {
-        loadData()
-     }, [])
-  
-     const loadData = async () => {
-        const users = await dispatch(loadUsers())
-     }
+   useEffect(() => {
+      loadData()
+   }, [])
 
+   const loadData = async () => {
+      const users = await dispatch(loadUsers())
+   }
 
-    return (
-        <div className="homepage">
-            <h1>Hello from homepage</h1>
-            <Link to="/sign-in">LogIn</Link>
-            <Link to="/sign-up">SignUp</Link>
-        </div>
-    )
+   return (
+      <div className="homepage">
+         <h1>Hello from homepage</h1>
+         <Link to="/sign-in">LogIn</Link>
+         <Link to="/sign-up">SignUp</Link>
+      </div>
+   )
 }

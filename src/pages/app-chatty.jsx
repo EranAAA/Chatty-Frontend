@@ -25,7 +25,7 @@ export const ChattyApp = () => {
     }
 
     return (
-        <section className="main-chatty-grid">
+        <section className="app-chatty-grid">
 
             <header className="chatty-header">
                 <ChattyHeader />
@@ -35,10 +35,8 @@ export const ChattyApp = () => {
                 <ChattySideBar />
             </aside>
 
-            <main className='chatty-content'>
+            <main className='chatty-board'>
                 <ChattyBoard />
-                <p>loggedInUser: {loggedInUser.username}</p>
-                <p>loggedInUser: {loggedInUser.email}</p>
             </main>
 
         </section>

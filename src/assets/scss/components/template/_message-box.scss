@@ -1,0 +1,29 @@
+.message-box {
+   position: relative;
+
+   .text-input {
+      background-color: white;
+      height: 30px;
+
+      &:focus-visible {
+         outline: unset
+      }
+   }
+
+   .button-container {
+      position: absolute;
+      right: 0px;
+      top: 0;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-inline-end: 10px;
+      height: 100%;
+
+      svg {
+         height: 24px;
+         width: 24px;
+      }
+
+   }
+}

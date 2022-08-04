@@ -11,7 +11,10 @@
 // COMPONENTS
 @import './components/app-header';
 @import './components/app-footer';
+@import './components/chatty-board';
 
 // PAGES
 @import './pages/app-chatty';
 
+// TEMPLATE
+@import '../scss/components//template/message-box';
