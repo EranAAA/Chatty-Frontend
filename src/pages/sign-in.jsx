@@ -33,12 +33,11 @@ export const SignIn = () => {
    const onLogIn = (users) => {
       isUserExist()
       isLogin = users.find(user => (user.email === email && user.password === password))
+
+      if (isLogin) navigate('/chat')
+      else console.log("Wrong password or email")
+
       setIsLogin(true)
-      if (isLogin) {
-         navigate('/chat')
-      } else {
-         console.log("Wrong password or email");
-      }
    }
 
    const isUserExist = () => {
