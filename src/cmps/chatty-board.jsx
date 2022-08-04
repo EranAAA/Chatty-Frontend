@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MessageBox } from './message-box.jsx'
+import { MessageBox } from './template/message-box.jsx'
 
 export const ChattyBoard = () => {
 
@@ -12,7 +12,7 @@ export const ChattyBoard = () => {
                   This is Today
                </p>
                <span className="status is-seen">✔️✔️</span>
-               <time dateTime>14:11</time>
+               <time dateTime='true'>14:11</time>
             </li>
          </ol>
          <div className="message-box">

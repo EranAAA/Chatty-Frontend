@@ -42,11 +42,11 @@ export const SignUp = () => {
    }
 
    return (
-      <section className="sign-up container">
+      <section className="sign-up">
          <h1>Hello from Signup</h1>
-         <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} required autocomplete="off"/>
-         <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} required autocomplete="off"/>
-         <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} required autocomplete="off"/>
+         <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} required autoComplete="off"/>
+         <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} required autoComplete="off"/>
+         <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} required autoComplete="off"/>
          <button onClick={onSignup}>Submit</button>
          {isExist &&
             <div>

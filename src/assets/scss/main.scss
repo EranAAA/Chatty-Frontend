@@ -9,7 +9,9 @@
 @import './basics/layout';
 
 // COMPONENTS
+@import './components/app-header';
+@import './components/app-footer';
 
 // PAGES
-@import './pages/chat';
+@import './pages/app-chatty';
 

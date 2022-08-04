@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
 import { loadUsers } from '../store/actions/user.action.js'
-import { SignUp } from './sign-up'
+import { SignUp } from './app-sign-up'
 
 export const Homepage = () => {
     const dispatch = useDispatch()
@@ -18,7 +18,7 @@ export const Homepage = () => {
 
 
     return (
-        <div className="homepage container">
+        <div className="homepage">
             <h1>Hello from homepage</h1>
             <Link to="/sign-in">LogIn</Link>
             <Link to="/sign-up">SignUp</Link>

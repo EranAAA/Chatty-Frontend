@@ -1,7 +1,7 @@
-import { Homepage } from '../src/pages/home-page.jsx'
-import { SignUp } from './pages/sign-up'
-import { SignIn } from './pages/sign-in'
-import { ChattyApp } from '../src/pages/chatty-app'
+import { Homepage } from './pages/app-home.jsx'
+import { SignUp } from './pages/app-sign-up'
+import { SignIn } from './pages/app-sign-in'
+import { ChattyApp } from './pages/app-chatty'
 
 const routes = [
     {

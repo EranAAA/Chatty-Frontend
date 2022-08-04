@@ -1,75 +1,57 @@
 .container {
     // padding-inline-start: calc((100vw - #{$mobile-viewport}) / 2); // max-600px
     // padding-inline-end: calc((100vw - #{$mobile-viewport}) / 2); // max-600px
-    // padding-right: calc(32px + 1.5625vw);
-    // padding-left: calc(32px + 1.5625vw);
-    padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
-    padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    padding-right: calc(32px + 1.5625vw);
+    padding-left: calc(32px + 1.5625vw);
+    // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
 
-    @include from-tablet-layout {
-        // padding-inline-start: calc((100vw - #{$tablet-viewport}) / 2); //max-900px
-        // padding-inline-end: calc((100vw - #{$tablet-viewport}) / 2); //max-900px
-        // padding-right: calc(32px + 1.5625vw);
-        // padding-left: calc(32px + 1.5625vw);
-        padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
-        padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
-    }
+    // @include from-tablet-layout {
+    //     padding-inline-start: calc((100vw - #{$tablet-viewport}) / 2); //max-900px
+    //     padding-inline-end: calc((100vw - #{$tablet-viewport}) / 2); //max-900px
+    //     // padding-right: calc(32px + 1.5625vw);
+    //     // padding-left: calc(32px + 1.5625vw);
+    //     // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    //     // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    // }
 
-    @include from-narrow-layout {
-        padding-inline-start: calc((110vw - #{$narrow-viewport}) / 2); //max-1200px
-        padding-inline-end: calc((110vw - #{$narrow-viewport}) / 2); //max-1200px
-        // padding-right: calc(32px + 1.5625vw);
-        // padding-left: calc(32px + 1.5625vw);
-        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
-        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
-    }
+    // @include from-narrow-layout {
+    //     padding-inline-start: calc((110vw - #{$narrow-viewport}) / 2); //max-1200px
+    //     padding-inline-end: calc((110vw - #{$narrow-viewport}) / 2); //max-1200px
+    //     // padding-right: calc(32px + 1.5625vw);
+    //     // padding-left: calc(32px + 1.5625vw);
+    //     // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    //     // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    // }
 
-    @include from-normal-layout {
-        padding-inline-start: calc((110vw - #{$normal-viewport}) / 2); //max-1200px
-        padding-inline-end: calc((110vw - #{$normal-viewport}) / 2); //max-1200px
-        // padding-right: calc(32px + 1.5625vw);
-        // padding-left: calc(32px + 1.5625vw);
-        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
-        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
-    }
+    // @include from-normal-layout {
+    //     padding-inline-start: calc((110vw - #{$normal-viewport}) / 2); //max-1200px
+    //     padding-inline-end: calc((110vw - #{$normal-viewport}) / 2); //max-1200px
+    //     // padding-right: calc(32px + 1.5625vw);
+    //     // padding-left: calc(32px + 1.5625vw);
+    //     // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    //     // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    // }
 
-    @include from-wide-layout {
-        padding-inline-start: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
-        padding-inline-end: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
-        // padding-right: calc(32px + 1.5625vw);
-        // padding-left: calc(32px + 1.5625vw);
-        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
-        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
-    }
+    // @include from-wide-layout {
+    //     padding-inline-start: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+    //     padding-inline-end: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+    //     // padding-right: calc(32px + 1.5625vw);
+    //     // padding-left: calc(32px + 1.5625vw);
+    //     // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    //     // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    // }
 
-    @include from-extra-wide-layout {
-        padding-inline-start: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
-        padding-inline-end: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
-        // padding-right: calc(32px + 1.5625vw);
-        // padding-left: calc(32px + 1.5625vw);
-        // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
-        // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
-    }
+    // @include from-extra-wide-layout {
+    //     padding-inline-start: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+    //     padding-inline-end: calc((110vw - #{$wide-viewport}) / 2); //min-1200px
+    //     // padding-right: calc(32px + 1.5625vw);
+    //     // padding-left: calc(32px + 1.5625vw);
+    //     // padding-inline-start: calc((132px + 1.5625vw) / 2); // max-600px
+    //     // padding-inline-end: calc((132px + 1.5625vw) / 2); // max-600px
+    // }
 
 }
-
-.middle-section {
-    display: grid;
-    grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1400px) minmax(3rem, 1fr);
-
-    >* {
-        grid-column: 2;
-    }
-
-    > :first-child {
-        grid-column: 1/-1;
-    }
-
-    >:nth-child(even) {
-        grid-column: 1/-1;
-    }
-}
-
 
 // $mobile-viewport: 600px; 
 // $tablet-viewport: 900px;
@@ -77,3 +59,53 @@
 // $normal-viewport: 1400px;
 // $wide-viewport: 1800px;
 // $extra-wide-viewport: 2200px;
+
+/* Responsive Variables */
+$break1:     "(min-width: 320px) and (max-width:767px)";
+$break1open: "(max-width:320px)";
+$break2:     "(min-width:768px) and (max-width:1023px)";
+$break2open: "(min-width:768px)";
+$break3:     "(min-width:1024px) and (max-width:1439px)"; 
+$break3open: "(min-width:1024px)";
+$break4open: "(min-width:1440px)";
+
+$mobile-viewport: 600px; 
+$tablet-viewport: 900px;
+$narrow-viewport: 1200px;
+$normal-viewport: 1400px;
+$wide-viewport: 1800px;
+$extra-wide-viewport: 2200px;
+
+
+/* mobile-viewport */
+// @media #{$break1}{
+//     html{ font-size: 1px; }
+// }
+
+// @media #{$break1open}{
+//     html{ font-size: 1.2px; }
+// }
+
+// /* tablet-viewpor */
+// @media #{$break2}{
+//     html{ font-size: 1.2px; }
+// }
+
+// @media #{$break2open}{
+//     html{ font-size: 1.4px; }
+// }
+
+// /* narrow-viewport */
+// @media #{$break3}{
+//     html{ font-size: 1.4px; }
+// }
+// @media #{$break3open}{
+//     html{ font-size: 1.6px; }
+// }
+
+// /* normal-viewport */
+// @media #{$break4open}{
+//     html{ font-size: 2.6px; }
+// }
+
+

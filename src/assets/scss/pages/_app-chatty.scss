@@ -1,0 +1,28 @@
+.main-chatty-grid {
+   background-color: yellow;
+   display: grid;
+   grid-template-columns: 25% 75%;
+   grid-template-rows: 20% 80%;
+   gap: 0px 0px;
+   grid-auto-flow: row;
+   grid-template-areas:
+      "chatty-header chatty-header"
+      "chatty-side chatty-content";
+   max-width: 90%;
+   position: relative;
+
+   .chatty-header {
+      grid-area: chatty-header;
+      background-color: skyblue;
+   }
+
+   .chatty-side {
+      grid-area: chatty-side;
+      background-color: green;
+   }
+
+   .chatty-content {
+      grid-area: chatty-content;
+      background-color: purple;
+   }
+}
