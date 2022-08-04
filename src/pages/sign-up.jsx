@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
-import { setLoggedUser } from '../store/actions/user.action.js'
+import { setLoggedUser, signup } from '../store/actions/user.action.js'
 
 export const SignUp = () => {
 
@@ -28,9 +28,8 @@ export const SignUp = () => {
 
    const onSignup = async () => {
       if (isUserExist()) return setIsExist(true)
-      console.log('signup')
-      // const newUser = await dispatch(signUp({ username, email, password }))
-      dispatch(setLoggedUser({ username, email  }))
+      const newUser = await dispatch(signup({ username, email, password }))
+      // dispatch(setLoggedUser({ username, email  }))
       // navigate(`../chatty-app/${/*newUser._id*/ 123548654}`, { replace: true });
       navigate(`../chatty-app`);
       setIsExist(false)

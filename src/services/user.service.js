@@ -30,7 +30,6 @@ function createUser() {
       isOnline: false,
       imgUrl: '',
    }
-
 }
 
 async function getUsers() {

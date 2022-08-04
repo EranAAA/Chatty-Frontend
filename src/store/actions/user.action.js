@@ -24,9 +24,23 @@ export function login(credentials) {
         } catch (err) {
             console.error('Error - cannot login:', err)
             console.log('Username or password invalid')
-            setTimeout(() => {
-                console.log('user error msg')
-            }, 3000)
+            throw err
+        }
+    }
+}
+
+export function signup(credentials) {
+    return async (dispatch) => {
+        try {
+            const user = await userService.signup(credentials)
+            dispatch({
+                type: 'SET_USER',
+                user
+            })
+            return user
+        } catch (err) {
+            console.error('Error - cannot login:', err)
+            console.log('Username or password invalid')
             throw err
         }
     }

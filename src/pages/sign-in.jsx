@@ -32,9 +32,7 @@ export const SignIn = () => {
 
    const onLogIn = async () => {
       isUserExist()
-      const loggedUser = await dispatch(login({email, password}))
-      console.log('loggedUser', loggedUser);
-      debugger
+      const loggedUser = await dispatch(login({email, password}))   
       if (loggedUser) navigate('/chatty-app')
       else console.log("Wrong password or email")
    }
