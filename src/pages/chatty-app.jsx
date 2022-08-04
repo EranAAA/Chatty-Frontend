@@ -6,6 +6,7 @@ import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
 import { ChattyBoard } from '../cmps/chatty-board'
 
+
 export const ChattyApp = () => {
 
     const dispatch = useDispatch()
@@ -24,19 +25,27 @@ export const ChattyApp = () => {
     }
 
     return (
-        <div className="chatty-app container">
+        <section className="main-chatty-grid container">
 
-            {/* AppHeader */}
-            <ChattyHeader/>
+            <header className="chatty-header">
+                <ChattyHeader />
+            </header>
 
+            <aside className="chatty-side">
+                <ChattySideBar />
+            </aside>
 
-            <ChattyBoard/>
-            <p>loggedInUser: {loggedInUser.username}</p>
-            <p>loggedInUser: {loggedInUser.email}</p>
+            <main className='chatty-content'>
+                <ChattyBoard />
+                <p>loggedInUser: {loggedInUser.username}</p>
+                <p>loggedInUser: {loggedInUser.email}</p>
+            </main>
 
-            {/* SideBar */}
-            <ChattySideBar/>
-            {/* ChatBoard */}
-        </div>
+        </section>
     )
 }
+
+
+
+
+

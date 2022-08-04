@@ -15,7 +15,9 @@ function getUsers() {
                 fullName: 'orgeva'
             }],
             msgId: ['msg101'],
-            isAdmin: false
+            isAdmin: false,
+            profileImg:'',
+            isOnline: false,
         },
         {
             _id: 102,
@@ -27,7 +29,9 @@ function getUsers() {
                 fullName: 'ronenberger'
             }],
             msgId: ['msg101', 'msg102'],
-            isAdmin: true
+            isAdmin: true,
+            isOnline: false,
+
         },
         {
             _id: 103,
@@ -45,7 +49,11 @@ function getUsers() {
                 }
             ],
             msgId: ['msg102'],
-            isAdmin: false
+            isAdmin: false,
+            isOnline: false,
+
         },
     ]
 }
+
+

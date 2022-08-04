@@ -12,22 +12,26 @@ function getChats() {
             {
                userId: '101',
                msg: 'hey',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             },
             {
                userId: '102',
                msg: 'hey!',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             },
             {
                userId: '101',
                msg: 'bye!',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             },
             {
                userId: '102',
                msg: 'bye fucker',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             }
          ]
       },
@@ -38,22 +42,26 @@ function getChats() {
             {
                userId: '103',
                msg: 'hey',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             },
             {
                userId: '102',
                msg: 'hey!',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             },
             {
                userId: '103',
                msg: 'bye!',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             },
             {
                userId: '102',
                msg: 'bye fucker',
-               createdAt: ''
+               createdAt: '',
+               isSeen: true,
             }
          ]
       },
