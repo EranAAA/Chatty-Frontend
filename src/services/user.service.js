@@ -18,6 +18,7 @@ function getUsers() {
             isAdmin: false,
             profileImg:'',
             isOnline: false,
+            imgUrl: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1657190502/de4ec514-64fb-48c3-85a5-e02a5a5238da_xayfuq.webp",    
         },
         {
             _id: 102,
@@ -31,6 +32,7 @@ function getUsers() {
             msgId: ['msg101', 'msg102'],
             isAdmin: true,
             isOnline: false,
+            imgUrl: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1657190166/66171d9a-52b4-456b-a26f-c142ba33913a_efj8y1.webp",
 
         },
         {
@@ -51,9 +53,13 @@ function getUsers() {
             msgId: ['msg102'],
             isAdmin: false,
             isOnline: false,
+            imgUrl: "https://res.cloudinary.com/dcbbqlssh/image/upload/v1657190455/c6714639-3d34-4a5a-9739-3a72597ae4ec_ud5587.webp",
 
         },
     ]
 }
 
 
+      
+       
+     

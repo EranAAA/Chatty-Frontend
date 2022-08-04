@@ -4,7 +4,7 @@ export const MessageBox = () => {
 
     return (
         <>
-              <h1>Hello message box</h1>
+            <h1>Hello message box</h1>
 
             <button class="common-button">
                 <span class="icon">😃</span>

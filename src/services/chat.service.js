@@ -43,25 +43,25 @@ function getChats() {
                userId: '103',
                msg: 'hey',
                createdAt: '',
-               isSeen: true,
+               isSeen: false,
             },
             {
                userId: '102',
                msg: 'hey!',
                createdAt: '',
-               isSeen: true,
+               isSeen: false,
             },
             {
                userId: '103',
                msg: 'bye!',
                createdAt: '',
-               isSeen: true,
+               isSeen: false,
             },
             {
                userId: '102',
                msg: 'bye fucker',
                createdAt: '',
-               isSeen: true,
+               isSeen: false,
             }
          ]
       },
