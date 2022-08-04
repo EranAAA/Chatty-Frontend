@@ -42,7 +42,7 @@ export const SignUp = () => {
    }
 
    return (
-      <section className="sign-up">
+      <section className="app-sign-up">
          <h1>Hello from Signup</h1>
          <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} required autoComplete="off"/>
          <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} required autoComplete="off"/>

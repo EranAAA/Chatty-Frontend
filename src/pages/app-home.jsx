@@ -17,10 +17,13 @@ export const Homepage = () => {
    }
 
    return (
-      <div className="homepage">
+      <div className="app-home">
          <h1>Hello from homepage</h1>
-         <Link to="/sign-in">LogIn</Link>
-         <Link to="/sign-up">SignUp</Link>
+
+         <div className="auth-container">
+            <Link to="/sign-in">LogIn</Link>
+            <Link to="/sign-up">SignUp</Link>
+         </div>
       </div>
    )
 }
