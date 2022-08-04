@@ -6,16 +6,16 @@ export const ChattyBoard = () => {
    return (
       <>
          <h1>Hello chat board</h1>
-         <ol class="messenger-list">
-            <li class="common-message time is-you">
-               <p class="common-message-content">
+         <ol className="messenger-list">
+            <li className="common-message time is-you">
+               <p className="common-message-content">
                   This is Today
                </p>
-               <span class="status is-seen">✔️✔️</span>
-               <time datetime>14:11</time>
+               <span className="status is-seen">✔️✔️</span>
+               <time dateTime='true'>14:11</time>
             </li>
          </ol>
-         <div class="message-box">
+         <div className="message-box">
             <MessageBox />
          </div>
       </>

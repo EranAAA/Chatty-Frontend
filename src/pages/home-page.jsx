@@ -18,7 +18,7 @@ export const Homepage = () => {
 
 
     return (
-        <div className="homepage container">
+        <div className="homepage">
             <h1>Hello from homepage</h1>
             <Link to="/sign-in">LogIn</Link>
             <Link to="/sign-up">SignUp</Link>

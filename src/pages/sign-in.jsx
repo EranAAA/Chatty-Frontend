@@ -43,7 +43,7 @@ export const SignIn = () => {
    }
 
    return (
-      <section className="sign-up container">
+      <section className="sign-up">
          <h1>Hello from Signin</h1>
          <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />
          <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} />

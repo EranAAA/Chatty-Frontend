@@ -4,7 +4,7 @@ export const ChattySideBar = () => {
 
    return (
       <>
-         <header class="common-header">
+         <header className="common-header">
             <h1>ChattySideBar</h1>
          </header>
          </>

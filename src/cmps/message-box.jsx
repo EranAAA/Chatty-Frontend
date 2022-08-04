@@ -6,14 +6,14 @@ export const MessageBox = () => {
         <>
             <h1>Hello message box</h1>
 
-            <button class="common-button">
-                <span class="icon">😃</span>
+            <button className="common-button">
+                <span className="icon">😃</span>
             </button>
-            <div class="text-input" id="message-box" placeholder="Type a message" contenteditable>
+            <div className="text-input" id="message-box" placeholder="Type a message" contentEditable>
             </div>
-            <button id="voice-button" class="common-button"><span class="icon">🎤</span>
+            <button id="voice-button" className="common-button"><span className="icon">🎤</span>
             </button>
-            <button id="submit-button" class="common-button"><span class="icon">➤</span>
+            <button id="submit-button" className="common-button"><span className="icon">➤</span>
             </button>
         </>
     )

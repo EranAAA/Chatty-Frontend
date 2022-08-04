@@ -25,7 +25,7 @@ export const ChattyApp = () => {
     }
 
     return (
-        <section className="main-chatty-grid container">
+        <section className="main-chatty-grid">
 
             <header className="chatty-header">
                 <ChattyHeader />
