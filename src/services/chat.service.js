@@ -6,9 +6,9 @@ export const chatService = {
    getChats
 }
 
-async function getChats() {
+async function getChats(userID = {}) {
    try {
-      return await httpService.get(`chat`)
+      return await httpService.get(`chat`, { userID })
    } catch (err) {
       console.log('cant chat query');
       throw err
@@ -21,5 +21,3 @@ function createChat() {
       chat: []
    }
 }
-
-

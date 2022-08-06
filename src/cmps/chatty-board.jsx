@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import { MessageBox } from './template/message-box.jsx'
-import { BoardList } from './board-list'
+import { ChatList } from './chat-list.jsx';
+export const ChattyBoard = ({ chat }) => {
 
-export const ChattyBoard = ({ chats }) => {
-
-   if (!chats.length) return
+   if (!chat) return
 
    return (
       <>
-         <BoardList chats={chats[0].chat} />
+         {chat && <ChatList chats={chat} />}
 
          <div className="message-box-container">
             <MessageBox />

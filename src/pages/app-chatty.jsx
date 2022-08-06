@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
@@ -17,15 +17,24 @@ export const ChattyApp = () => {
     const { users, loggedInUser } = useSelector(({ userModule }) => userModule)
     const { chats } = useSelector(({ chatModule }) => chatModule)
 
+    const [chatIdDisplay, setChatIdDisplay] = useState('')
+
     useEffect(() => {
         if (!loggedInUser) return navigate(`../`);
         loadData()
     }, [])
 
     const loadData = async () => {
-        await dispatch(loadChats())
+        await dispatch(loadChats(loggedInUser._id))
     }
 
+    const getDisplayChat = () => {
+        if (!chatIdDisplay) return
+        let chat = chats.filter(chat => chat._id === chatIdDisplay)
+        return chat[0].chat
+    }
+
+    console.log('loggedInUser', loggedInUser);
     return (
         <section className="app-chatty-grid">
 
@@ -34,11 +43,11 @@ export const ChattyApp = () => {
             </header>
 
             <aside className="chatty-side">
-                <ChattySideBar loggedInUser={loggedInUser} chats={chats}/>
+                <ChattySideBar loggedInUser={loggedInUser} chats={chats} setChatIdDisplay={setChatIdDisplay} />
             </aside>
 
             <main className='chatty-board'>
-                <ChattyBoard chats={chats}/>
+                <ChattyBoard chat={getDisplayChat()} />
             </main>
 
         </section>

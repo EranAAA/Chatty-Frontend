@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-export const ChattySideBar = ({ loggedInUser, chats }) => {
+export const ChattySideBar = ({ loggedInUser, chats, setChatIdDisplay }) => {
 
    if (!chats) return
-   console.log('loggedInUser', loggedInUser);
-   console.log('chat', chats);
+   // console.log('loggedInUser', loggedInUser);
+   console.log('chats', chats);
+
+   // const getUserChats = () => {
+   //    const userChats = chats.filter(chats =>)
+   // }
 
    return (
       <>
@@ -17,7 +21,7 @@ export const ChattySideBar = ({ loggedInUser, chats }) => {
 
          <div className='chat-list'>
             Chat List
-            {loggedInUser.msgId.map(msg => <div key={msg}>{msg}</div>)}
+            {chats.map(chat => <div onClick={() => setChatIdDisplay(chat._id)} key={chat._id}>{chat._id}</div>)}
          </div>
       </>
    )

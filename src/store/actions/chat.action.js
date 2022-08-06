@@ -1,9 +1,9 @@
 import { chatService } from "../../services/chat.service.js"
 
-export const loadChats = () => {
+export const loadChats = (userID) => {
    try {
       return async (dispatch) => {
-         const chats = await chatService.getChats()
+         const chats = await chatService.getChats(userID)
          dispatch({ type: 'SET_CHATS', chats })
          return chats
       }
