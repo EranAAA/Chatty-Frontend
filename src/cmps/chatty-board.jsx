@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { MessageBox } from './template/message-box.jsx'
 import { ChatList } from './chat-list.jsx';
-export const ChattyBoard = ({ chat }) => {
+export const ChattyBoard = ({ chat, onUpdateChat }) => {
 
    if (!chat) return
 
@@ -11,7 +11,7 @@ export const ChattyBoard = ({ chat }) => {
          {chat && <ChatList chats={chat} />}
 
          <div className="message-box-container">
-            <MessageBox />
+            <MessageBox onUpdateChat={onUpdateChat}/>
          </div>
       </>
    )

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
-import { loadChats } from '../store/actions/chat.action'
+import { loadChats, updateChat } from '../store/actions/chat.action'
 
 import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
@@ -20,7 +20,7 @@ export const ChattyApp = () => {
     const [chatIdDisplay, setChatIdDisplay] = useState('')
 
     useEffect(() => {
-        if (!loggedInUser) return navigate(`../`);
+        if (!loggedInUser) return navigate(`../`)
         loadData()
     }, [])
 
@@ -34,7 +34,20 @@ export const ChattyApp = () => {
         return chat[0].chat
     }
 
-    console.log('loggedInUser', loggedInUser);
+    const onUpdateChat = async (msg) => {
+        let chatIdx = chats.findIndex((chat) => chat._id === chatIdDisplay)
+        const updatedChat = chats[chatIdx]
+        updatedChat.chat.push({
+            msg,
+            isSeen: false,
+            userId: loggedInUser._id,
+            createdAt: Date.now()
+        })
+        const beupdatedChat = await dispatch(updateChat(updatedChat))
+        console.log('beupdatedChat', beupdatedChat)
+    }
+
+    console.log('loggedInUser', loggedInUser)
     return (
         <section className="app-chatty-grid">
 
@@ -47,7 +60,7 @@ export const ChattyApp = () => {
             </aside>
 
             <main className='chatty-board'>
-                <ChattyBoard chat={getDisplayChat()} />
+                <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} />
             </main>
 
         </section>
