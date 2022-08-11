@@ -1,7 +1,7 @@
 .app-header-container {
     min-height: 75px;
-        // position: fixed;
-        // top: 0;
+    // position: fixed;
+    // top: 0;
     // min-height: 75px;
     background-color: white;
     // position: absolute;
@@ -11,8 +11,32 @@
     box-shadow: 0 1px 20px -6px rgba(black, 0.08);
     text-align: center;
     min-width: 100%;
-    
-    h1{
-        margin: 0;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-container {
+        min-width: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        & svg {
+            height: 120px;
+            width: 120px;
+            cursor: pointer;
+        }
+
+        & .nav-bar {
+            gap: 20px;
+            cursor: pointer;
+            
+            & a {
+                padding: 10px;
+                
+                &:hover {
+                    color: blue;
+                    border-bottom: 2px solid blue;
+                }
+            }
+        }
     }
 }
