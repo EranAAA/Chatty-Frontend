@@ -1,9 +1,26 @@
 .chatty-board {
     position: relative;
+    max-height: 70%;
+    z-index: 1;
 
-    .message-box-container {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
+    .chat-msg-board-container {
+        // align-items: center;
+        justify-content: space-between;
+        // min-width: 100%;
+        // position: absolute;
+        margin-top: 0;
+        min-width: 100%;
+        // overflow-y: scroll;
+        // min-height: 200%;
+        
+        .message-box-container {
+            width: 100%;
+            position: absolute;
+
+            // & input {
+            //     width: 100%;
+            //     padding: 20px 50px 20px 20px;
+            // }
+        }
     }
 }

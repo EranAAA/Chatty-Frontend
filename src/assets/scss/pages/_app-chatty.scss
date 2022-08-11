@@ -1,29 +1,49 @@
 .app-chatty-grid {
-   background-color: yellow;
+   // background-color: yellow;
    display: grid;
-   grid-template-columns: 20% 80%;
-   grid-template-rows: 10% 90%;
+   grid-template-columns: minmax(20% 80%);
+   grid-template-rows: minmax(5% 80%);
    gap: 0px 0px;
    grid-auto-flow: row;
    grid-template-areas:
       "chatty-header chatty-header"
       "chatty-side chatty-board";
    // max-width: 90%;
-   position: relative;
-   flex-grow: 1;
-
-   .chatty-header {
+   // position: absolute;
+   // flex-grow: 1;
+   // margin: auto 0;
+   // margin-top: auto;
+   
+   .chatty-header-container {
       grid-area: chatty-header;
-      background-color: skyblue;
+      box-shadow: 0 1px 20px -6px rgba(black, 0.08);
+      // background-color: skyblue;
+      // width: 100%;
+      // min-height: rem(75px);
+      // position: absolute;
+      // top: 0;
+      // z-index: 5;
    }
-
+   
    .chatty-side {
       grid-area: chatty-side;
-      background-color: green;
    }
-
-   .chatty-board {
+   
+   .chatty-board-container {
       grid-area: chatty-board;
-      background-color: purple;
+      // min-height: 100%;
+      justify-content: space-between;
+      // max-height: 70%;
+      // min-height: 70%;
+
+      .message-list {
+         @include scroll;
+         // justify-content: space-between;
+         // overflow-y: auto;
+         // overflow-y: scroll;
+         // min-width: 100%;
+         max-height: 100%;
+         // min-height: calc(100% - 80px);
+      }
    }
 }

@@ -7,12 +7,16 @@ export const ChattyBoard = ({ chat, onUpdateChat }) => {
    if (!chat) return
 
    return (
+      // <section className="chat-msg-board-container flex flex-column">
       <>
-         {chat && <ChatList chats={chat} />}
+         <div className="message-list">
+            {chat && <ChatList chats={chat} />}
+         </div>
 
          <div className="message-box-container">
-            <MessageBox onUpdateChat={onUpdateChat}/>
+            <MessageBox onUpdateChat={onUpdateChat} />
          </div>
       </>
+      // </section>
    )
 }

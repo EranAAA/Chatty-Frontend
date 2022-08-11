@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
-
+import { LogoBlue } from '../services/svg-service.js'
 import { setLoggedUser, signup } from '../store/actions/user.action.js'
 
 export const SignUp = () => {
@@ -12,8 +12,8 @@ export const SignUp = () => {
    const { users } = useSelector(({ userModule }) => userModule)
 
    useEffect(() => {
-      if(!users) return navigate(`../`);
-  }, [])
+      if (!users) return navigate(`../`);
+   }, [])
 
    const [username, setUsername] = useState('')
    const [email, setEmail] = useState('')
@@ -42,17 +42,33 @@ export const SignUp = () => {
    }
 
    return (
-      <section className="app-sign-up">
-         <h1>Hello from Signup</h1>
-         <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} required autoComplete="off"/>
-         <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} required autoComplete="off"/>
-         <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} required autoComplete="off"/>
-         <button onClick={onSignup}>Submit</button>
-         {isExist &&
-            <div>
-               You already a user, move to
-               <Link to="/sign-in"> Login</Link>
-            </div>}
+      <section className="app-sign-up flex flex-column">
+         <div className="sign-up-card flex flex-column">
+            <div className="card-title flex flex-column">
+               <div className="logo-text flex flex-column">
+                  <LogoBlue />
+                  <div className="welcome-text">Welcome!</div>
+               </div>
+               <span className="text-redirect flex">Already have an account?
+                  <a href="/sign-in" className="create-text">Sign in</a>
+               </span>
+            </div>
+
+            <div className="signup-input flex flex-column">
+               <input type="text" name='username' value={username} placeholder='Username' onChange={handleChange} required autoComplete="off" />
+               <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} required autoComplete="off" />
+               <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} required autoComplete="off" />
+            </div>
+            <div className="btn-signup">
+               <button onClick={onSignup}>Signup</button>
+            </div>
+
+            {isExist &&
+               <div className="text-redirect">
+                  You already have an account
+                  <Link to="/sign-in">Sign in</Link>
+               </div>}
+         </div>
       </section>
    )
 

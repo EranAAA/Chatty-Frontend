@@ -51,7 +51,7 @@ export const ChattyApp = () => {
     return (
         <section className="app-chatty-grid">
 
-            <header className="chatty-header">
+            <header className="chatty-header-container">
                 <ChattyHeader />
             </header>
 
@@ -59,7 +59,7 @@ export const ChattyApp = () => {
                 <ChattySideBar loggedInUser={loggedInUser} chats={chats} setChatIdDisplay={setChatIdDisplay} />
             </aside>
 
-            <main className='chatty-board'>
+            <main className='chatty-board-container flex flex-column'>
                 <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} />
             </main>
 

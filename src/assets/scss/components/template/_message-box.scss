@@ -1,9 +1,12 @@
 .message-box {
    position: relative;
+   margin-bottom: 0;
 
    .text-input {
-      background-color: white;
-      height: 30px;
+      // background-color: white;
+      // height: 30px;
+      width: 100%;
+      padding: 20px 50px 20px 20px;
 
       &:focus-visible {
          outline: unset
