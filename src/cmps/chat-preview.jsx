@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux/es/exports'
 
-export const ChatPreview = ({ chat }) => {
-
+export const ChatPreview = ({ chats, chat }) => {
    const { loggedInUser } = useSelector(({ userModule }) => userModule)
+
+useEffect(() => {
+   setTimeout(() => {
+      if (chat.userId !== loggedInUser) chats.forEach((chat) =>
+          chat.isSeen = true)
+  }, 3000)
+    }, [])
 
    const isUserLogged = () => {
       if (chat.userId === loggedInUser._id) return true
@@ -12,15 +18,23 @@ export const ChatPreview = ({ chat }) => {
    return (
       <div className="chat-preview" style={{ textAlign: `${isUserLogged() ? 'right' : 'left'}` }}>
          {isUserLogged() &&
-            <p className='msg user-msg'>
+            <div className='msg user-msg'>
                <span>Name1</span>
-               <div>{chat.msg}</div>
-            </p>}
+               <p>{chat.msg}</p>
+               <div className='time-isseen flex'>
+                  <p className="time-text">{chat.createdAt}</p>
+                  {chat.isSeen ? <div className="isSeen">VV</div> : <div className="">VV</div>}
+               </div>
+            </div>}
          {!isUserLogged() &&
-            <p className='msg friend-msg'>
+            <div className='msg friend-msg'>
                <span>Name1</span>
-               <div>{chat.msg}</div>
-            </p>}
+               <p>{chat.msg}</p>
+               <div className='time-isseen flex'>
+                  <p className="time-text">{chat.createdAt}</p>
+                  {chat.isSeen && <span className="isSeen">vv</span>}
+               </div>
+            </div>}
       </div>
    )
 }

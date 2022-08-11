@@ -30,18 +30,20 @@ export const ChattyApp = () => {
 
     const getDisplayChat = () => {
         if (!chatIdDisplay) return
+
         let chat = chats.filter(chat => chat._id === chatIdDisplay)
         return chat[0].chat
     }
 
     const onUpdateChat = async (msg) => {
+        const date = new Date()
         let chatIdx = chats.findIndex((chat) => chat._id === chatIdDisplay)
         const updatedChat = chats[chatIdx]
         updatedChat.chat.push({
             msg,
             isSeen: false,
             userId: loggedInUser._id,
-            createdAt: Date.now()
+            createdAt: date.getHours().toLocaleString() + ':' + date.getMinutes().toLocaleString()
         })
         const beupdatedChat = await dispatch(updateChat(updatedChat))
         console.log('beupdatedChat', beupdatedChat)

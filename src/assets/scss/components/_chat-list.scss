@@ -1,9 +1,5 @@
 .chat-list {
-   display: flex;
-   flex-direction: column;
    min-height: 100%;
-   overflow: scroll;
    height: 100px;
-
-   
+   gap: 1.4em;
 }

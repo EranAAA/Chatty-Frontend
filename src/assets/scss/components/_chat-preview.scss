@@ -7,44 +7,68 @@
    min-height: 70px;
 
    & .msg {
-      font-size: 15px;
-      text-align: left;
+      font-size: 1.2em;
       position: relative;
 
       &.user-msg {
+         text-align: left;
+         padding: 4rem 45rem 14rem 30rem;
          float: right;
-         padding: 14rem 40rem 14rem 20rem;
-         margin: 1rem 1rem 1rem auto;
          border-radius: 25vmax 25vmax 0 25vmax;
          background: #333;
          color: white;
+         filter: drop-shadow(0 1px 1px rgb(210, 209, 209));
+
+         & p {
+            margin: unset;
+         }
 
          span {
-            position: absolute;
-            top: 1px;
-            left: 20px;
-            font-size: 11px;
+            font-size: 0.6em;
             color: tomato;
          }
-      }
-
-      &.friend-msg {
-         float: left;
-         padding: 14rem 40rem 14rem 20rem;
-         margin: 1rem 1rem 1rem auto;
-         border-radius: 25vmax 25vmax 25vmax 0;
-         background: rgb(174, 174, 174);
-         color: #333;
-
-         span {
-            position: absolute;
-            top: 1px;
-            left: 20px;
-            font-size: 11px;
-            color: green;
+         
+         .time-isseen{
+            justify-content: space-between;
+            align-items: center;
+            
+            & .time-text{
+               font-size: 0.6em;
+            }
+            
+            & .isSeen{
+               color: white;
+            }
          }
       }
+      
+      &.friend-msg {
+         float: left;
+         text-align: right;
+         padding: 4rem 30rem 14rem 45rem;
+         border-radius: 25vmax 25vmax 25vmax 0;
+         background: rgb(240, 240, 240);
+         color: #333;
+         filter: drop-shadow(0 1px 1px rgb(210, 209, 209));
+         
+         span {
+            font-size: 0.6em;
+            color: green;
+         }    
+         
+         & p {
+            margin: unset;
+         }
 
-  
+         .time-isseen{
+            justify-content: space-between;
+            align-items: center;
+            
+            & .time-text{
+               font-size: 0.6em;
+            }
+            
+         }
+      }
    }
 }

@@ -1,7 +1,6 @@
 import React from 'react'
-
 import { MessageBox } from './template/message-box.jsx'
-import { ChatList } from './chat-list.jsx';
+import { ChatList } from './chat-list.jsx'
 
 export const ChattyBoard = ({ chat, onUpdateChat }) => {
 
@@ -9,13 +8,13 @@ export const ChattyBoard = ({ chat, onUpdateChat }) => {
 
    return (
       <>
-         <div className="message-list">
-            {chat && <ChatList chats={chat} />}
-         </div>
+            <div className="message-list">
+               {chat && <ChatList chats={chat} />}
+            </div>
 
-         <div className="message-box-container">
-            <MessageBox onUpdateChat={onUpdateChat} />
-         </div>
-      </>
-   )
+            <div className="message-box-container">
+               <MessageBox onUpdateChat={onUpdateChat} />
+            </div>
+         </>
+         )
 }

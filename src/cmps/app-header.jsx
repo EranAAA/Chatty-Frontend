@@ -9,7 +9,8 @@ export const AppHeader = () => {
       <>
          <div className="header-container">
             <div className="logo">
-               <LogoBlue />
+               
+               <NavLink to="/"><LogoBlue /></NavLink>
             </div>
             <div className="nav-bar">
                <NavLink to="/chatty-app">Chatty</NavLink>
