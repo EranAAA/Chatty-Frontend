@@ -1,10 +1,13 @@
 import React from 'react'
+import { LogoBlue } from '../services/svg-service.js'
 
 export const AppFooter = () => {
 
    return (
-    <section>
-         <h1>Hello App Footer</h1>
+    <section className="footer-container flex">
+             <div className="logo">
+               <LogoBlue />
+            </div>
     </section>
    )
 }
