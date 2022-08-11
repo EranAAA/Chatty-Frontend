@@ -8,11 +8,11 @@ import '../src/assets/scss/main.scss'
 
 export const App = () => {
    return (
-      <div className="App flex flex-column">
-         <header className="app-header-container container"> 
-            <AppHeader/>
+      <div className="App">
+         <header className="app-header-container ">
+            <AppHeader />
          </header>
-         <main className="routes-container container flex flex-column">
+         <main className="routes-container">
             <Routes>
                {routes.map(route =>
                   <Route key={route.path}
@@ -21,8 +21,8 @@ export const App = () => {
                      path={route.path} />)}
             </Routes>
          </main>
-         <footer className="app-footer-container container">
-            <AppFooter/>
+         <footer className="app-footer-container">
+            <AppFooter />
          </footer>
       </div>
    )

@@ -10,9 +10,17 @@ export const ChatPreview = ({ chat }) => {
    }
 
    return (
-      <div className="chat-preview" style={{ textAlign: `${isUserLogged() ? 'right' : 'left'}`}}>
-         {isUserLogged() && <p className='msg user-msg'>{chat.msg}</p>}
-         {!isUserLogged() && <p className='msg friend-msg'>{chat.msg}</p>}
+      <div className="chat-preview" style={{ textAlign: `${isUserLogged() ? 'right' : 'left'}` }}>
+         {isUserLogged() &&
+            <p className='msg user-msg'>
+               <span>Name1</span>
+               <div>{chat.msg}</div>
+            </p>}
+         {!isUserLogged() &&
+            <p className='msg friend-msg'>
+               <span>Name1</span>
+               <div>{chat.msg}</div>
+            </p>}
       </div>
    )
 }

@@ -3,10 +3,10 @@
    margin-bottom: 0;
 
    .text-input {
-      // background-color: white;
-      // height: 30px;
       width: 100%;
       padding: 20px 50px 20px 20px;
+      border: unset;
+      background-color: aliceblue;
 
       &:focus-visible {
          outline: unset
@@ -15,17 +15,21 @@
 
    .button-container {
       position: absolute;
-      right: 0px;
       top: 0;
+
       display: flex;
-      gap: 15px;
       align-items: center;
-      margin-inline-end: 10px;
+      gap: 25px;
+
       height: 100%;
+      right: 0;
+      margin-inline-end: 10px;
+      cursor: pointer;
 
       svg {
-         height: 24px;
-         width: 24px;
+         height: 27px;
+         width: 27px;
+         background-color: unset;
       }
 
    }

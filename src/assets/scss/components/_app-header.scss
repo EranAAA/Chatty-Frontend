@@ -1,13 +1,7 @@
 .app-header-container {
     min-height: 75px;
-    // position: fixed;
-    // top: 0;
-    // min-height: 75px;
     background-color: white;
-    // position: absolute;
     margin-top: 0;
-    // top: 0;
-    z-index: 10;
     box-shadow: 0 1px 20px -6px rgba(black, 0.08);
     text-align: center;
     min-width: 100%;
@@ -16,6 +10,7 @@
 
     .header-container {
         min-width: 100%;
+        display: flex;
         align-items: center;
         justify-content: space-between;
 
@@ -31,6 +26,7 @@
             
             & a {
                 padding: 10px;
+                color: #121212;
                 
                 &:hover {
                     color: blue;

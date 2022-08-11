@@ -4,9 +4,9 @@ import { LogoBlue } from '../services/svg-service.js'
 export const AppFooter = () => {
 
    return (
-    <section className="footer-container flex">
+    <section className="footer-containers ">
              <div className="logo">
-               <LogoBlue />
+               {/* <LogoBlue /> */}
             </div>
     </section>
    )

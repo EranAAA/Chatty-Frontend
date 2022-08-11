@@ -13,14 +13,13 @@ export const ChattySideBar = ({ loggedInUser, chats, setChatIdDisplay }) => {
    return (
       <>
          <div className='friends-list'>
-            Friends List
+            <span>Friends List</span>
             {loggedInUser.friends.map(friend => <div key={friend}>{friend}</div>)}
          </div>
 
-         <br />
-
          <div className='chat-list-side'>
-            Chat List
+            <span>Chat List </span>
+
             {chats.map(chat => <div onClick={() => setChatIdDisplay(chat._id)} key={chat._id}>{chat._id}</div>)}
          </div>
       </>

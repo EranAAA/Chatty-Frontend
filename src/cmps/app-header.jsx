@@ -7,11 +7,11 @@ export const AppHeader = () => {
 
    return (
       <>
-         <div className="header-container flex">
+         <div className="header-container">
             <div className="logo">
                <LogoBlue />
             </div>
-            <div className="nav-bar flex">
+            <div className="nav-bar">
                <NavLink to="/chatty-app">Chatty</NavLink>
                <NavLink to="/sign-in">Sign in</NavLink>
                <NavLink to="/sign-up">Sign up</NavLink>
