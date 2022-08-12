@@ -3,12 +3,6 @@ import React, { useState, useEffect } from 'react';
 export const ChattySideBar = ({ loggedInUser, chats, setChatIdDisplay }) => {
 
    if (!chats) return
-   // console.log('loggedInUser', loggedInUser);
-   console.log('chats', chats);
-
-   // const getUserChats = () => {
-   //    const userChats = chats.filter(chats =>)
-   // }
 
    return (
       <>

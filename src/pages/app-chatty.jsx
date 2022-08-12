@@ -46,10 +46,9 @@ export const ChattyApp = () => {
             createdAt: date
         })
         const beupdatedChat = await dispatch(updateChat(updatedChat))
-        console.log('beupdatedChat', beupdatedChat)
+        // console.log('beupdatedChat', beupdatedChat)
     }
 
-    console.log('loggedInUser', loggedInUser)
     return (
         <section className="app-chatty-grid">
 

@@ -3,12 +3,13 @@
     flex-direction: column;
 
     .message-list {
-        overflow: auto;
+        overflow-y: scroll;
         max-height: 100%;
         padding-inline-start: 20px;
-        padding-inline-end: 20px;
+        padding-inline-end: 10px;
         margin-block-end: 10px;
         flex-grow: 1;
+        margin: 0;
 
         &::-webkit-scrollbar {
             width: 10px;
