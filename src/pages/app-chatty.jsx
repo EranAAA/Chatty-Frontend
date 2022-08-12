@@ -36,14 +36,14 @@ export const ChattyApp = () => {
     }
 
     const onUpdateChat = async (msg) => {
-        const date = new Date()
+        const date = Date.now()
         let chatIdx = chats.findIndex((chat) => chat._id === chatIdDisplay)
         const updatedChat = chats[chatIdx]
         updatedChat.chat.push({
             msg,
             isSeen: false,
             userId: loggedInUser._id,
-            createdAt: date.getHours().toLocaleString() + ':' + date.getMinutes().toLocaleString()
+            createdAt: date
         })
         const beupdatedChat = await dispatch(updateChat(updatedChat))
         console.log('beupdatedChat', beupdatedChat)

@@ -11,12 +11,20 @@ export const MessageBox = ({ onUpdateChat }) => {
 
    const onSendMsg = () => {
       onUpdateChat(msgText)
+      setMsgText('')
+   }
+
+   const onSendMsgByKeyDown = ({ key }) => {
+      if (key === 'Enter') {
+         onUpdateChat(msgText)
+         setMsgText('')
+      }
    }
 
    return (
       <section className="message-box">
 
-         <input type="text" value={msgText} onChange={handleChange} className="text-input" placeholder="Type a message"></input>
+         <input type="text" value={msgText} onChange={handleChange} onKeyDown={onSendMsgByKeyDown} className="text-input" placeholder="Type a message"></input>
 
          <div className="button-container">
             <div className="button">

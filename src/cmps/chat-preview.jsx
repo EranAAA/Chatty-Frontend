@@ -19,7 +19,6 @@ export const ChatPreview = ({ chats, chat }) => {
 
    const dateDisplayed = (createdAt) => {
       const date = new Date(createdAt)
-      console.log(date.toLocaleTimeString('he-IL'));
       return date.toLocaleTimeString('he-IL', {hour: 'numeric', minute: 'numeric'})
    }
 
