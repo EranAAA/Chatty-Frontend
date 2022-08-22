@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { ChatPreview } from './chat-preview'
 
 export const ChatList = ({ chats }) => {

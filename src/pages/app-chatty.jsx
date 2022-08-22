@@ -8,6 +8,7 @@ import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
 import { ChattyBoard } from '../cmps/chatty-board.jsx'
 
+import { DynamicPopUp } from '../cmps/template/dynamic-popup'
 
 export const ChattyApp = () => {
 
@@ -18,6 +19,7 @@ export const ChattyApp = () => {
     const { chats } = useSelector(({ chatModule }) => chatModule)
 
     const [chatIdDisplay, setChatIdDisplay] = useState('')
+    const [firstMsgVisible, setFirstMsgVisible] = useState('')
 
     useEffect(() => {
         if (!loggedInUser) return navigate(`../`)
@@ -61,7 +63,8 @@ export const ChattyApp = () => {
             </aside>
 
             <main className='chatty-board'>
-                <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} />
+                <DynamicPopUp firstMsgVisible={firstMsgVisible}/>
+                <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} setFirstMsgVisible={setFirstMsgVisible}/>
             </main>
 
         </section>

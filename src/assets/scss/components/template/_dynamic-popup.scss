@@ -1,0 +1,20 @@
+.dynamic-popup {
+   position: absolute;
+   top: 0%;
+   left: 50%;
+   transform: translateX(-50%);
+   background-color: antiquewhite;
+   width: 150px;
+   border-radius: 25px;
+   margin-top: 10px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 16px;
+   }
+}

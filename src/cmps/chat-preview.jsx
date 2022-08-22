@@ -1,21 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux/es/exports'
+import moment from 'moment';
 
 import { BiCheckDouble, BiCheck } from 'react-icons/bi'
 
 export const ChatPreview = ({ chats, chat, isLast }) => {
 
-   const bottomRef = useRef(null);
+   const elmRef = useRef(null);
+
    const { loggedInUser } = useSelector(({ userModule }) => userModule)
 
    useEffect(() => {
-      // setTimeout(() => {
-      //    if (chat.userId !== loggedInUser) chats.forEach((chat) =>
-      //       chat.isSeen = true)
-      // }, 3000)
-
-      // 👇️ scroll to bottom every time messages change
-      if (isLast) bottomRef.current?.scrollIntoView({ block: "end" });
+      if (isLast) elmRef.current?.scrollIntoView({ block: "end" });
 
    }, [chat])
 
@@ -28,8 +24,13 @@ export const ChatPreview = ({ chats, chat, isLast }) => {
       return date.toLocaleTimeString('he-IL', { hour: 'numeric', minute: 'numeric' })
    }
 
+   const getMonthCreated = () => {
+      moment.locale('he');
+      return moment(chat.createdAt).format('DD/MM/YYYY')
+   }
+
    return (
-      <div className="chat-preview" ref={bottomRef} style={{ textAlign: `${isUserLogged() ? 'right' : 'left'}` }}>
+      <div className="chat-preview" ref={elmRef} id={getMonthCreated()} style={{ textAlign: `${isUserLogged() ? 'right' : 'left'}` }}>
          {isUserLogged() &&
             <div className='msg user-msg'>
                <span>Name1</span>

@@ -1,7 +1,8 @@
 .chatty-board {
     display: flex;
     flex-direction: column;
-
+    position: relative;
+    
     .message-list {
         overflow-y: scroll;
         max-height: 100%;
