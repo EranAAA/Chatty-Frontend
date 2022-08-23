@@ -1,8 +1,8 @@
 .chat-preview {
-   padding: 1rem;
+   padding: 1px;
    box-shadow:
-      inset 0 2rem 2rem -2rem rgba(black, 0.05),
-      inset 0 -2rem 2rem -2rem rgba(black, 0.05);
+      inset 0 2px 2px -2px rgba(black, 0.05),
+      inset 0 -2px 2px -2px rgba(black, 0.05);
    flex-grow: 1;
    min-height: 70px;
 
@@ -12,7 +12,7 @@
 
       &.user-msg {
          text-align: left;
-         padding: 4rem 45rem 5rem 30rem;
+         padding: 4px 45px 5px 30px;
          float: right;
          border-radius: 25vmax 25vmax 0 25vmax;
          background: #333;
@@ -45,12 +45,12 @@
       &.friend-msg {
          float: left;
          text-align: right;
-         padding: 4rem 45rem 0rem 30rem;
+         padding: 4px 45px 0px 30px;
          border-radius: 25vmax 25vmax 25vmax 0;
          background: rgb(240, 240, 240);
          color: #333;
          filter: drop-shadow(0 1px 1px rgb(210, 209, 209));
-         
+
          span {
             font-size: 0.6em;
             color: green;

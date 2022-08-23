@@ -6,7 +6,8 @@ export const DynamicPopUp = ({ firstMsgVisible }) => {
 
    return (
       <section className="dynamic-popup">
-         <p>{firstMsgVisible}</p>
+        { firstMsgVisible && <p>{firstMsgVisible}</p>}
+        { !firstMsgVisible && <p>Date</p>}
       </section>
    )
 }

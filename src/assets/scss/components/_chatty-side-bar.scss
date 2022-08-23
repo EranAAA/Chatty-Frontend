@@ -1,33 +1,59 @@
 .chatty-side {
-    font-size: 14px;
-    background-color: lightgrey;
-    padding: 0px 10px;
+   font-size: 14px;
+   background-color: lightgrey;
+   padding: 0px 10px;
 
-    .friends-list {
-        display: flex;
-        flex-direction: column;
-    }
+   .friends-list {
+      display: flex;
+      flex-direction: column;
+   }
 
-    .chat-list-side {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
+   .chat-list-side {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
 
-        span {
-            margin-bottom: 10px;
-        }
+      .title {
+         margin-bottom: 10px;
+      }
 
-        div {
-            line-height: 50px;
-            border-radius: 4px;
-            background-color: white;
-            padding: 0px 5px;
+      .chat-info-container {
+         display: flex;
+         line-height: 16px;
+         border-radius: 4px;
+         background-color: white;
+         padding: 0px 5px;
 
-            &:hover {
-                background-color: gold;
+         &:hover {
+            background-color: gold;
+         }
+
+         .img {
+            display: flex;
+            align-items: center;
+            margin-right: 5px;
+            svg {
+               width: 40px;
+               height: 40px;
             }
-        }
-    }
+         }
+
+         .text-container {
+            display: flex;
+            flex-direction: column;
+
+            .name {
+               padding: 5px;
+            }
+
+            .last-msg {
+               padding: 5px;
+               font-size: 10px;
+               color: gray;
+            }
+         }
+      }
+   }
 
 }

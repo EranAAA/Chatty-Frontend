@@ -9,6 +9,9 @@ export function chatReducer(state = initialState, action) {
         case 'SET_CHATS':
             newState = { ...state, chats: action.chats }
             break
+        case 'CLEAR_CHATS':
+            newState = { ...state, chats: []}
+            break
         case 'UPDATE_CHAT':
             // console.log(' state.chats', state.chats )
             // console.log(' action', action )

@@ -24,4 +24,14 @@ export const updateChat = (chat) => {
    }
 }
 
+export const clearChat = () => {
+   try {
+      return async (dispatch) => {
+         dispatch({ type: 'CLEAR_CHATS' })
+      }
+   } catch (err) {
+      console.log('Cannot clear chats', err)
+   }
+}
+
 

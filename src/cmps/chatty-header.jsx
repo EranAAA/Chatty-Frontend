@@ -6,7 +6,7 @@ export const ChattyHeader = () => {
 
    return (
       <>
-         <p>chatty-header</p>
+         <p>Chatty Header</p>
       </>
    )
 }

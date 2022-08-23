@@ -20,11 +20,11 @@ export const ChattyApp = () => {
 
     const [chatIdDisplay, setChatIdDisplay] = useState('')
     const [firstMsgVisible, setFirstMsgVisible] = useState('')
-
+    
     useEffect(() => {
         if (!loggedInUser) return navigate(`../`)
         loadData()
-    }, [])
+    }, [loggedInUser])
 
     const loadData = async () => {
         await dispatch(loadChats(loggedInUser._id))
@@ -32,6 +32,7 @@ export const ChattyApp = () => {
 
     const getDisplayChat = () => {
         if (!chatIdDisplay) return
+        if (!chats.length) return 
 
         let chat = chats.filter(chat => chat._id === chatIdDisplay)
         return chat[0].chat
@@ -51,6 +52,8 @@ export const ChattyApp = () => {
         // console.log('beupdatedChat', beupdatedChat)
     }
 
+    if (!chats) return 
+
     return (
         <section className="app-chatty-grid">
 
@@ -63,7 +66,8 @@ export const ChattyApp = () => {
             </aside>
 
             <main className='chatty-board'>
-                <DynamicPopUp firstMsgVisible={firstMsgVisible}/>
+                {/* NEED TO ADD USE_MEMEO BECAUSE ITES MAKE IT ALL RENDEERD  */}
+                <DynamicPopUp firstMsgVisible={firstMsgVisible}/> 
                 <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} setFirstMsgVisible={setFirstMsgVisible}/>
             </main>
 

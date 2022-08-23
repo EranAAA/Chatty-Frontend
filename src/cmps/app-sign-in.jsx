@@ -1,79 +1,77 @@
-import React, { useState, useEffect } from 'react'
-import { loadUsers, setLoggedUser, login } from '../store/actions/user.action.js'
-import { useDispatch, useSelector } from 'react-redux/es/exports'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux/es/exports'
+
+import { setLoggedUser, login } from '../store/actions/user.action.js'
+import { clearChat } from '../store/actions/chat.action.js'
+
 import { LogoBlue } from '../services/svg-service.js'
 
-export const SignIn = () => {
-   // const { users } = useSelector(({ userModule }) => userModule)
-   const { users } = useSelector((storeState) => storeState.userModule)
+export const SignIn = ({ setIsCloseModal, users }) => {
+
+   const dispatch = useDispatch()
 
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [isExist, setIsExist] = useState(false)
    const [checked, setChecked] = useState(false)
 
-   const navigate = useNavigate()
-   const dispatch = useDispatch()
 
-   useEffect(() => {
-      loadData()
-      // if (!users) return navigate(`../`);
-   }, [])
-
-
-   const loadData = async () => {
-      await dispatch(loadUsers())
-   }
-
-   const handleChange = ({ target, users }) => {
+   const handleChange = ({ target }) => {
       if (target.name === 'email') setEmail(target.value)
       if (target.name === 'password') setPassword(target.value)
-      dispatch(setLoggedUser({ email: email, password: password }))
    }
 
    const onLogIn = async () => {
       isUserExist()
+      dispatch(clearChat())
+      dispatch(setLoggedUser({ email, password }))
       const loggedUser = await dispatch(login({ email, password }))
-      if (loggedUser) navigate('/chatty-app')
+      if (loggedUser) console.log("Successfully logged in")
       else console.log("Wrong password or email")
+      setIsCloseModal(false)
    }
 
    const isUserExist = () => {
       setIsExist(users.some(user => user.email === email))
-      if (!isExist) navigate('/sign-up')
+      if (!isExist) console.log("User already exists")
+      setIsCloseModal(false)
    }
 
    return (
 
-      <section className="app-sign-in flex flex-column">
+      <section className="app-sign-in">
 
-         <div className="sign-in-card flex flex-column">
-            <div className="card-title flex flex-column">
-               <div className="logo-text flex flex-column">
+         <div className="close" onClick={() => setIsCloseModal(false)}>X</div>
+
+         <div className="sign-in-card ">
+
+            <div className="card-title ">
+               <div className="logo-text ">
                   <LogoBlue />
                   <div className="welcome-text">Welcome Back</div>
                </div>
-               <span className="text-redirect flex">Don't have an account?
+               <span className="text-redirect ">Don't have an account?
                   <a href="/sign-up" className="create-text">Create today!</a>
                </span>
             </div>
 
-            <div className="signin-input flex flex-column">
+            <div className="signin-input ">
                <input type="email" name="email" placeholder='Email' value={email} onChange={handleChange} />
-
                <input type="password" name="password" placeholder='Password' value={password} onChange={handleChange} />
             </div>
-            <div className="remember-me flex">
-               <div className="remember-me-checked flex">
+
+            <div className="remember-me ">
+               <div className="remember-me-checked ">
                   <input type="checkbox" id="rememberme" name="rememberme" value={checked} checked={checked} onChange={e => setChecked(e.checked)} />
                   <label htmlFor="rememberme">Remember me</label>
                </div>
                <a href="/sign-up" className="forget-password">Forgot your password?</a>
             </div>
+
             <div className="btn-login">
                <button onClick={onLogIn}>Sign in</button>
             </div>
+
          </div>
       </section>
    )

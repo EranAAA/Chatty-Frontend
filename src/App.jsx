@@ -1,8 +1,9 @@
 import React from 'react'
-import routes from './routes.js'
 import { Routes, Route } from 'react-router'
+
 import { AppHeader } from '../src/cmps/app-header.jsx'
 import { AppFooter } from '../src/cmps/app-footer.jsx'
+import { ChattyApp } from './pages/app-chatty'
 
 import '../src/assets/scss/main.scss'
 
@@ -14,11 +15,7 @@ export const App = () => {
          </header>
          <main className="routes-container">
             <Routes>
-               {routes.map(route =>
-                  <Route key={route.path}
-                     exact={true}
-                     element={route.component}
-                     path={route.path} />)}
+               <Route path='/' element={<ChattyApp />} />
             </Routes>
          </main>
          <footer className="app-footer-container">
