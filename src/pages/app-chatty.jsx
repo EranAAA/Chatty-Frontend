@@ -8,7 +8,7 @@ import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
 import { ChattyBoard } from '../cmps/chatty-board.jsx'
 
-import { DynamicPopUp } from '../cmps/template/dynamic-popup'
+import { DynamicPopUp } from '../cmps/template/dynamic-popup' 
 
 export const ChattyApp = () => {
 
@@ -49,7 +49,6 @@ export const ChattyApp = () => {
             createdAt: date
         })
         const beupdatedChat = await dispatch(updateChat(updatedChat))
-        // console.log('beupdatedChat', beupdatedChat)
     }
 
     if (!chats) return 
