@@ -1,27 +1,27 @@
 .app-home {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+
    .logo-text {
       display: flex;
       padding: 15px;
       justify-content: center;
       align-items: center;
 
-      & svg {
-         margin-top: -30px;
-         margin-bottom: -30px;
-      }
    }
 
    .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      
       text-align: center;
+
       font-family: roboto-light;
       color: rgb(24, 116, 190);
       font-size: 2.1875rem;
       cursor: pointer;
+      gap: 10px;
 
    }
 }

@@ -7,7 +7,6 @@ import { SignIn_SignUp } from './signin_signup'
 export const ChattySideHeader = ({ loggedInUser }) => {
 
    const { users } = useSelector((storeState) => storeState.userModule)
-
    const [isCloseModalSign, setIsCloseModalSign] = useState(true)
 
    const onSign = () => {

@@ -28,12 +28,11 @@ export const AppChatty = () => {
    useEffect(() => {
       if (loggedInUser) loadData()
       window.addEventListener('resize', autoResize)
-      autoResize()
       return () => window.removeEventListener('resize', autoResize);
    }, [loggedInUser])
 
    useEffect(() => {
-      if (window.innerWidth <= 550) {
+      if (window.innerWidth <= 750) {
          if (backing) {
             setIsHideSide(false)
             setIsHideMain(true)
@@ -42,16 +41,20 @@ export const AppChatty = () => {
             setIsHideMain(false)
          }
       }
-
    }, [backing])
 
    useEffect(() => {
-      if (window.innerWidth <= 550) {
-         setIsHideSide(false)
-         setIsHideMain(true)
+      if (window.innerWidth <= 750 && chatIdDisplay) {
+         console.log('chatIdDisplay');
+         setIsHideSide(true)
+         setIsHideMain(false)
          setBacking(false)
       }
-
+      else if (window.innerWidth <= 750 && !chatIdDisplay) {
+         console.log('!chatIdDisplay');
+         setIsHideSide(false)
+         setIsHideMain(true)
+      }
    }, [chatIdDisplay])
 
    const autoResize = () => {
@@ -106,7 +109,7 @@ export const AppChatty = () => {
 
          <main className={`chatty-main ${isHideMain ? 'hide' : ''}`}>
             {/* NEED TO ADD USE_MEMO BECAUSE ITES MAKE IT ALL RENDEERD  */}
-            <ChattyBoardHeader chat={getDisplayChat()} loggedInUser={loggedInUser} setBacking={setBacking} />
+            <ChattyBoardHeader chat={getDisplayChat()} loggedInUser={loggedInUser} setBacking={setBacking} setChatIdDisplay={setChatIdDisplay}/>
             <DynamicPopUp firstMsgVisible={firstMsgVisible} />
             <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} setFirstMsgVisible={setFirstMsgVisible} />
          </main>

@@ -3,7 +3,7 @@ import React from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { FaArrowLeft } from 'react-icons/fa'
 
-export const ChattyBoardHeader = ({ chat, loggedInUser, setBacking }) => {
+export const ChattyBoardHeader = ({ chat, loggedInUser, setBacking, setChatIdDisplay }) => {
 
    const getFriendUserInfo = (userInfo) => {
       return userInfo.filter(user => user._id !== loggedInUser._id)
@@ -11,6 +11,7 @@ export const ChattyBoardHeader = ({ chat, loggedInUser, setBacking }) => {
 
    const onBack = () => {
       setBacking(true)
+      setChatIdDisplay('')
    }
 
    return (

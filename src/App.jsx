@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 import { useDispatch } from 'react-redux/es/exports'
 
@@ -23,14 +23,10 @@ export const App = () => {
 
    return (
       <div className="App">
-
-         <main className="routes-container">
-            <Routes>
-               <Route path='/' element={<AppHome />} />
-               <Route path='/chatty-app' element={<AppChatty />} />
-            </Routes>
-         </main>
-
+         <Routes>
+            <Route path='/' element={<AppHome />} />
+            <Route path='/chatty-app' element={<AppChatty />} />
+         </Routes>
       </div>
    )
 }

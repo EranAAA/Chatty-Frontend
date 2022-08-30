@@ -13,8 +13,8 @@ export const ChatPreview = ({ msg, userInfo, isLast }) => {
    const { loggedInUser } = useSelector(({ userModule }) => userModule)
 
    useEffect(() => {
+      if (isLast) elmRef.current?.scrollIntoView(true);
       if (isLast) elmRef.current?.scrollIntoView({ block: "end" });
-
    }, [msg])
 
    const isUserLogged = () => {

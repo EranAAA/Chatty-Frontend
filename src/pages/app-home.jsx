@@ -19,8 +19,7 @@ export const AppHome = () => {
          <div className="logo-text "> <LogoBlue /></div>
 
          <h1 className="btn" onClick={onSign} >
-            Clck here to login
-            <IoIosLogIn />
+            LOGIN <IoIosLogIn />
          </h1>
 
          {!isCloseModalSign && <SignIn_SignUp setIsCloseModal={setIsCloseModalSign} users={users} />}

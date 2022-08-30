@@ -4,6 +4,11 @@
    background-color: rgb(238, 238, 238);
    padding: 9px;
 
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   z-index: 100;
+
    .text-input {
       width: 100%;
       border: unset;
@@ -16,7 +21,7 @@
       border-width: 0;
       background-color: #FFF;
       line-height: 25px;
-      
+
       &:focus-visible {
          outline: unset
       }

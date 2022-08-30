@@ -1,6 +1,6 @@
 .dynamic-popup {
    position: absolute;
-   top: 7%;
+   top: 10%;
    left: 50%;
    transform: translateX(-50%);
    background-color: #121212;
@@ -11,6 +11,8 @@
    display: flex;
    align-items: center;
    justify-content: center;
+
+   z-index: 100;
 
    p {
       margin-top: 5px;
