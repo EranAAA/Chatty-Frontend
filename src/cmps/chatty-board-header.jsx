@@ -10,7 +10,6 @@ export const ChattyBoardHeader = ({ chat, loggedInUser, setBacking }) => {
    }
 
    const onBack = () => {
-      console.log('Back');
       setBacking(true)
    }
 

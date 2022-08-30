@@ -50,7 +50,7 @@ export function logout() {
    return async (dispatch) => {
       try {
          await userService.logout()
-         dispatch({ type: 'CLEAR_USER', })
+         // dispatch({ type: 'CLEAR_USER', })
       } catch (err) {
          console.log('Cant log out')
          throw err

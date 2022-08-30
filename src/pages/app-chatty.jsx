@@ -10,7 +10,7 @@ import { ChattyBoard } from '../cmps/chatty-board.jsx'
 import { ChattyBoardHeader } from '../cmps/chatty-board-header.jsx'
 import { DynamicPopUp } from '../cmps/template/dynamic-popup'
 
-export const ChattyApp = () => {
+export const AppChatty = () => {
 
    const dispatch = useDispatch()
 
@@ -47,9 +47,8 @@ export const ChattyApp = () => {
 
    useEffect(() => {
       if (window.innerWidth <= 550) {
-         console.log('HERE');
-         setIsHideSide(true)
-         setIsHideMain(false)
+         setIsHideSide(false)
+         setIsHideMain(true)
          setBacking(false)
       }
 
@@ -59,7 +58,8 @@ export const ChattyApp = () => {
       setDesktopSize(window.innerWidth)
       // console.log(window.innerWidth);
       if (window.innerWidth <= 750) {
-         setIsHideSide(true)
+         setIsHideSide(false)
+         setIsHideMain(true)
       } else {
          setIsHideSide(false)
          setIsHideMain(false)
@@ -67,7 +67,9 @@ export const ChattyApp = () => {
    }
 
    const loadData = async () => {
-      await dispatch(loadChats(loggedInUser._id))
+      if (loggedInUser._id) {
+         await dispatch(loadChats(loggedInUser._id))
+      }
    }
 
    const getDisplayChat = () => {

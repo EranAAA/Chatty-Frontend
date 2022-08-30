@@ -24,7 +24,7 @@ export function userReducer(state = initialState, action) {
             newState = { ...state, users: action.users }
             break
         case 'CLEAR_USER':
-            newState = { ...state, loggedInUser: '' }
+            newState = { ...state, loggedInUser: null }
             break
         default:
     }
