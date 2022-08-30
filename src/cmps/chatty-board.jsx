@@ -8,7 +8,6 @@ export const ChattyBoard = ({ chat, onUpdateChat, setFirstMsgVisible }) => {
    const elmRef = useRef(null);
 
    useEffect(() => {
-
       window.addEventListener('scroll', scrollHandler);
       return () => window.removeEventListener('scroll', scrollHandler);
 
@@ -27,14 +26,11 @@ export const ChattyBoard = ({ chat, onUpdateChat, setFirstMsgVisible }) => {
    }
 
    return (
-      <>
-         <div className="message-list" ref={elmRef} onScroll={scrollHandler}>
-            {chat && <ChatList chats={chat} />}
+      <div className="chatty-board">
+         <div className="chat-list" ref={elmRef} onScroll={scrollHandler}>
+            {chat && <ChatList chat={chat} />}
          </div>
-
-         <div className="message-box-container">
-            <MessageBox onUpdateChat={onUpdateChat} />
-         </div>
-      </>
+         <MessageBox onUpdateChat={onUpdateChat} />
+      </div>
    )
 }

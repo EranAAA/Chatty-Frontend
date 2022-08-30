@@ -1,0 +1,49 @@
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    background-color: rgb(234, 234, 234);
+    border-right: 1px solid gray;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        color: gray;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .chat-container {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-left: 10px;
+
+        .image {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .username {
+            font-size: rem(14px);
+            margin-left: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            max-width: 150px;
+        }
+
+        .back {
+            display: none;
+
+            @media screen and (max-width: 550px) {
+                display: inline;
+            }
+        }
+
+    }
+
+}

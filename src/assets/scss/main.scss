@@ -9,19 +9,19 @@
 @import './basics/layout';
 
 // COMPONENTS
-@import './components/app-header';
-@import './components/app-footer';
-@import './components/chatty-header';
 @import './components/chatty-board';
+@import './components/chatty-board-header';
+
 @import './components/chat-list';
 @import './components/chat-preview';
 
 @import './components/chatty-side-bar';
+@import './components/chatty-side-header';
+
+@import './components/signin_signup';
 
 // PAGES
 @import './pages/app-chatty';
-// @import './pages/app-home';
-@import './pages/app-sign-in';
 @import './pages/app-sign-up';
 
 // TEMPLATE

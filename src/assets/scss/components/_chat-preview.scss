@@ -3,75 +3,84 @@
    box-shadow:
       inset 0 2px 2px -2px rgba(black, 0.05),
       inset 0 -2px 2px -2px rgba(black, 0.05);
-   flex-grow: 1;
-   min-height: 70px;
+   margin: 8px 0px 0px 0px;
 
    & .msg {
-      font-size: 0.9em;
       position: relative;
 
       &.user-msg {
          text-align: left;
-         padding: 4px 45px 5px 30px;
+         padding: 4px 18px 5px 30px;
          float: right;
-         border-radius: 25vmax 25vmax 0 25vmax;
-         background: #333;
+         border-radius: 20px 5px 5px 0px;
+         background: rgb(11, 81, 66);
          color: white;
-         filter: drop-shadow(0 1px 1px rgb(210, 209, 209));
+         min-width: 150px;
 
          & p {
             margin: unset;
+            text-align: left;
+            font-size: rem(14px);
          }
 
          span {
-            font-size: 0.6em;
-            color: tomato;
+            margin-left: -15px;
+            font-size: rem(12px);
+            color: gold;
          }
-         
-         .time-isseen{
-            justify-content: space-between;
+
+         .time-isseen {
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
-            
-            & .time-text{
-               font-size: 0.6em;
+
+            & .time-text {
+               margin-right: -10px;
+               font-size: rem(12px);
             }
-            
-            & .isSeen{
+
+            & .isSeen {
                color: white;
             }
          }
       }
-      
+
       &.friend-msg {
          float: left;
          text-align: right;
-         padding: 4px 45px 0px 30px;
-         border-radius: 25vmax 25vmax 25vmax 0;
-         background: rgb(240, 240, 240);
+         padding: 4px 30px 5px 18px;
+         border-radius: 5px 20px 0px 5px;
+         background: #FFF;
          color: #333;
-         filter: drop-shadow(0 1px 1px rgb(210, 209, 209));
+         min-width: 150px;
 
-         span {
-            font-size: 0.6em;
-            color: green;
-         }    
-         
          & p {
             margin: unset;
+            text-align: left;
+            font-size: rem(14px);
          }
 
-         .time-isseen{
+         span {
+            font-size: rem(12px);
+            color: green;
+            margin-right: -15px;
+         }
+
+         .time-isseen {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            
-            & .time-text{
-               font-size: 0.6em;
+            width: 120%;
+
+            & .time-text {
+               margin-left: -10px;
+               font-size: rem(12px);
             }
 
-            & .isSeen{
+            & .isSeen {
                color: green;
             }
-            
+
          }
       }
    }

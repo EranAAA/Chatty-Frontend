@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-
+import React from 'react'
 
 export const DynamicPopUp = ({ firstMsgVisible }) => {
 
-
    return (
-      <section className="dynamic-popup">
+      <div className="dynamic-popup">
         { firstMsgVisible && <p>{firstMsgVisible}</p>}
-        { !firstMsgVisible && <p>Date</p>}
-      </section>
+      </div>
    )
 }

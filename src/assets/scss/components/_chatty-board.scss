@@ -1,24 +1,24 @@
 .chatty-board {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    flex-grow: 1;
+    // height: 800px;
 
-    .message-list {
+    .chat-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         overflow-y: scroll;
-        max-height: 100%;
         padding-inline-start: 20px;
         padding-inline-end: 10px;
         margin-block-end: 10px;
         flex-grow: 1;
         margin: 0;
+        padding-top: 10px;
+        height: calc(100vh - 108px);
+        padding-bottom: 20px;
 
         &::-webkit-scrollbar {
             width: 10px;
         }
     }
 
-    .message-box-container {
-        width: 100%;
-        flex-grow: 0;
-    }
 }

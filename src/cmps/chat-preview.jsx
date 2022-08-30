@@ -4,19 +4,21 @@ import moment from 'moment';
 
 import { BiCheckDouble, BiCheck } from 'react-icons/bi'
 
-export const ChatPreview = ({ chats, chat, isLast }) => {
+export const ChatPreview = ({ msg, userInfo, isLast }) => {
+
+   // console.log(msg);
+   // console.log(userInfo);
 
    const elmRef = useRef(null);
-
    const { loggedInUser } = useSelector(({ userModule }) => userModule)
 
    useEffect(() => {
       if (isLast) elmRef.current?.scrollIntoView({ block: "end" });
 
-   }, [chat])
+   }, [msg])
 
    const isUserLogged = () => {
-      if (chat.userId === loggedInUser._id) return true
+      if (msg.userId === loggedInUser._id) return true
    }
 
    const dateDisplayed = (createdAt) => {
@@ -26,28 +28,36 @@ export const ChatPreview = ({ chats, chat, isLast }) => {
 
    const getMonthCreated = () => {
       moment.locale('he');
-      return moment(chat.createdAt).format('DD/MM/YYYY')
+      return moment(msg.createdAt).format('DD/MM/YYYY')
+   }
+
+   const getFriendsName = (userId) => {
+      const user = userInfo.filter(user => user._id === userId)
+      return user[0].username
    }
 
    return (
       <div className="chat-preview" ref={elmRef} id={getMonthCreated()} style={{ textAlign: `${isUserLogged() ? 'right' : 'left'}` }}>
          {isUserLogged() &&
             <div className='msg user-msg'>
-               <span>Name1</span>
-               <p>{chat.msg}</p>
-               <div className='time-isseen flex'>
-                  <p className="time-text">{dateDisplayed(chat.createdAt)}</p>
+               <span>{loggedInUser.username}</span>
+               <p>{msg.text}</p>
+               <div className='time-isseen'>
+                  <p className="time-text">{dateDisplayed(msg.createdAt)}</p>
                </div>
             </div>}
          {!isUserLogged() &&
             <div className='msg friend-msg'>
-               <span>Name1</span>
-               <p>{chat.msg}</p>
-               <div className='time-isseen flex'>
-                  <p className="time-text">{dateDisplayed(chat.createdAt)}</p>
-                  {chat.isSeen ? <div className="isSeen"><BiCheckDouble /></div> : <div className=""><BiCheck /></div>}
+               <span>{getFriendsName(msg.userId)}</span>
+               <p>{msg.text}</p>
+               <div className='time-isseen'>
+                  <p className="time-text">{dateDisplayed(msg.createdAt)}</p>
+                  {msg.isSeen ? <div className="isSeen"><BiCheckDouble /></div> : <div className=""><BiCheck /></div>}
                </div>
             </div>}
+
       </div>
    )
 }
+
+

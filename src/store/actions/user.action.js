@@ -46,6 +46,18 @@ export function signup(credentials) {
    }
 }
 
+export function logout() {
+   return async (dispatch) => {
+      try {
+         await userService.logout()
+         dispatch({ type: 'CLEAR_USER', })
+      } catch (err) {
+         console.log('Cant log out')
+         throw err
+      }
+   }
+}
+
 export const setLoggedUser = (user) => {
    try {
       return (dispatch) => {
@@ -53,5 +65,15 @@ export const setLoggedUser = (user) => {
       }
    } catch (err) {
       console.log('UserActions: err in loadUsers', err)
+   }
+}
+
+export const clearUser = () => {
+   try {
+      return async (dispatch) => {
+         dispatch({ type: 'CLEAR_USER' })
+      }
+   } catch (err) {
+      console.log('Cannot clear user', err)
    }
 }

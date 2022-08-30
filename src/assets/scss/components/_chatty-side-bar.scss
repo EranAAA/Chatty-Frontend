@@ -1,41 +1,65 @@
-.chatty-side {
+.side-bar {
    font-size: 14px;
-   background-color: lightgrey;
-   padding: 0px 10px;
+   background-color: rgb(247, 246, 246);
+   // border-right: 1px solid gray;
+   flex-grow: 1;
 
-   .friends-list {
+   .search {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      background: lightgray;
+      position: relative;
+      transition: 0.2s;
+
+      input {
+         flex: 1;
+         margin: 8px 16px;
+         appearance: none;
+         background-color: var(--white);
+         padding: 10px;
+         padding-left: 50px;
+         margin: 10px 10px;
+         border-radius: 20px;
+         border-width: 0;
+         background-color: #FFF;
+      }
+
+   }
+
+   .search::before {
+      content: "🔎";
+      position: absolute;
+      left: 30px;
+      top: 15px;
+      filter: grayscale(1) opacity(0.5);
    }
 
    .chat-list-side {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       cursor: pointer;
-
-      .title {
-         margin-bottom: 10px;
-      }
 
       .chat-info-container {
          display: flex;
-         line-height: 16px;
-         border-radius: 4px;
          background-color: white;
-         padding: 0px 5px;
+         padding: 6px 5px;
+         min-width: 200px;
 
          &:hover {
-            background-color: gold;
+           box-shadow: 0 0 1px 0px;
          }
 
          .img {
             display: flex;
             align-items: center;
             margin-right: 5px;
+
             svg {
                width: 40px;
                height: 40px;
+               color: darkorchid;
             }
          }
 
@@ -45,12 +69,17 @@
 
             .name {
                padding: 5px;
+               font-size: rem(15px);
             }
 
             .last-msg {
                padding: 5px;
-               font-size: 10px;
+               font-size: rem(12px);
                color: gray;
+               overflow: hidden;
+               white-space: nowrap;
+               text-overflow: ellipsis;
+               width: 200px;
             }
          }
       }

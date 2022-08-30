@@ -1,13 +1,22 @@
 .message-box {
    position: relative;
    margin-bottom: 0;
+   background-color: rgb(238, 238, 238);
+   padding: 9px;
 
    .text-input {
       width: 100%;
-      padding: 20px 50px 20px 20px;
       border: unset;
-      background-color: aliceblue;
+      font-size: rem(15px);
 
+      padding: 5px;
+      padding-left: 50px;
+      // margin: 10px 10px;
+      border-radius: 20px;
+      border-width: 0;
+      background-color: #FFF;
+      line-height: 25px;
+      
       &:focus-visible {
          outline: unset
       }
@@ -27,8 +36,8 @@
       cursor: pointer;
 
       svg {
-         height: 27px;
-         width: 27px;
+         height: 20px;
+         width: 20px;
          background-color: unset;
       }
 

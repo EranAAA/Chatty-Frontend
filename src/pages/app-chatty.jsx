@@ -1,77 +1,116 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 
 import { loadChats, updateChat } from '../store/actions/chat.action'
 
-import { ChattyHeader } from '../cmps/chatty-header'
 import { ChattySideBar } from '../cmps/chatty-side-bar'
-import { ChattyBoard } from '../cmps/chatty-board.jsx'
+import { ChattySideHeader } from '../cmps/chatty-side-header'
 
-import { DynamicPopUp } from '../cmps/template/dynamic-popup' 
+import { ChattyBoard } from '../cmps/chatty-board.jsx'
+import { ChattyBoardHeader } from '../cmps/chatty-board-header.jsx'
+import { DynamicPopUp } from '../cmps/template/dynamic-popup'
 
 export const ChattyApp = () => {
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate();
+   const dispatch = useDispatch()
 
-    const { users, loggedInUser } = useSelector(({ userModule }) => userModule)
-    const { chats } = useSelector(({ chatModule }) => chatModule)
+   const { loggedInUser } = useSelector(({ userModule }) => userModule)
+   const { chats } = useSelector(({ chatModule }) => chatModule)
 
-    const [chatIdDisplay, setChatIdDisplay] = useState('')
-    const [firstMsgVisible, setFirstMsgVisible] = useState('')
-    
-    useEffect(() => {
-        if (!loggedInUser) return navigate(`../`)
-        loadData()
-    }, [loggedInUser])
+   const [chatIdDisplay, setChatIdDisplay] = useState('')
+   const [firstMsgVisible, setFirstMsgVisible] = useState('')
 
-    const loadData = async () => {
-        await dispatch(loadChats(loggedInUser._id))
-    }
+   const [isHideSide, setIsHideSide] = useState(false);
+   const [isHideMain, setIsHideMain] = useState(false);
+   const [backing, setBacking] = useState(false);
+   const [desktopSize, setDesktopSize] = useState('');
 
-    const getDisplayChat = () => {
-        if (!chatIdDisplay) return
-        if (!chats.length) return 
+   useEffect(() => {
+      if (loggedInUser) loadData()
+      window.addEventListener('resize', autoResize)
+      autoResize()
+      return () => window.removeEventListener('resize', autoResize);
+   }, [loggedInUser])
 
-        let chat = chats.filter(chat => chat._id === chatIdDisplay)
-        return chat[0].chat
-    }
+   useEffect(() => {
+      if (window.innerWidth <= 550) {
+         if (backing) {
+            setIsHideSide(false)
+            setIsHideMain(true)
+         } else {
+            setIsHideSide(true)
+            setIsHideMain(false)
+         }
+      }
 
-    const onUpdateChat = async (msg) => {
-        const date = Date.now()
-        let chatIdx = chats.findIndex((chat) => chat._id === chatIdDisplay)
-        const updatedChat = chats[chatIdx]
-        updatedChat.chat.push({
-            msg,
-            isSeen: false,
-            userId: loggedInUser._id,
-            createdAt: date
-        })
-        const beupdatedChat = await dispatch(updateChat(updatedChat))
-    }
+   }, [backing])
 
-    if (!chats) return 
+   useEffect(() => {
+      if (window.innerWidth <= 550) {
+         console.log('HERE');
+         setIsHideSide(true)
+         setIsHideMain(false)
+         setBacking(false)
+      }
 
-    return (
-        <section className="app-chatty-grid">
+   }, [chatIdDisplay])
 
-            <header className="chatty-header">
-                <ChattyHeader />
-            </header>
+   const autoResize = () => {
+      setDesktopSize(window.innerWidth)
+      // console.log(window.innerWidth);
+      if (window.innerWidth <= 750) {
+         setIsHideSide(true)
+      } else {
+         setIsHideSide(false)
+         setIsHideMain(false)
+      }
+   }
 
-            <aside className="chatty-side">
-                <ChattySideBar loggedInUser={loggedInUser} chats={chats} setChatIdDisplay={setChatIdDisplay} />
-            </aside>
+   const loadData = async () => {
+      await dispatch(loadChats(loggedInUser._id))
+   }
 
-            <main className='chatty-board'>
-                {/* NEED TO ADD USE_MEMEO BECAUSE ITES MAKE IT ALL RENDEERD  */}
-                <DynamicPopUp firstMsgVisible={firstMsgVisible}/> 
-                <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} setFirstMsgVisible={setFirstMsgVisible}/>
-            </main>
+   const getDisplayChat = () => {
+      if (!chatIdDisplay) return
+      if (!chats.length) return
 
-        </section>
-    )
+      let chat = chats.filter(chat => chat._id === chatIdDisplay)
+      return chat[0]
+   }
+
+   const onUpdateChat = async (text) => {
+      const date = Date.now()
+      let chatIdx = chats.findIndex((chat) => chat._id === chatIdDisplay)
+      const updatedChat = chats[chatIdx]
+
+      updatedChat.msgs.push({
+         text,
+         isSeen: false,
+         userId: loggedInUser._id,
+         createdAt: date
+      })
+      await dispatch(updateChat(updatedChat))
+   }
+
+   // if (!chats) return
+
+   return (
+      <section className="app-chatty">
+
+         <aside className={`chatty-side ${isHideSide ? 'hide' : ''}`}>
+            <ChattySideHeader loggedInUser={loggedInUser} />
+            <ChattySideBar loggedInUser={loggedInUser} chats={chats} setChatIdDisplay={setChatIdDisplay} />
+         </aside>
+
+         <main className={`chatty-main ${isHideMain ? 'hide' : ''}`}>
+            {/* NEED TO ADD USE_MEMO BECAUSE ITES MAKE IT ALL RENDEERD  */}
+            <ChattyBoardHeader chat={getDisplayChat()} loggedInUser={loggedInUser} setBacking={setBacking} />
+            <DynamicPopUp firstMsgVisible={firstMsgVisible} />
+            <ChattyBoard chat={getDisplayChat()} onUpdateChat={onUpdateChat} setFirstMsgVisible={setFirstMsgVisible} />
+         </main>
+
+      </section>
+   )
 }
 
 

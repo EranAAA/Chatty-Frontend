@@ -2,11 +2,11 @@ import React from 'react'
 
 import { ChatPreview } from './chat-preview'
 
-export const ChatList = ({ chats }) => {
+export const ChatList = ({ chat }) => {
 
    return (
-      <div className="chat-list flex flex-column" >
-         {chats.map((chat, idx) => <ChatPreview key={idx} chat={chat} chats={chats} isLast={chats.length - 1 === idx} />)}
-      </div>
+      < >
+         {chat.msgs.map((msg, idx) => <ChatPreview key={idx} msg={msg} userInfo={chat.userInfo} isLast={chat.msgs.length - 1 === idx} />)}
+      </>
    )
 }

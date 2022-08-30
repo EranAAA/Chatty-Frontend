@@ -3,23 +3,20 @@ import { CgProfile } from 'react-icons/cg';
 
 export const ChattySideBar = ({ loggedInUser, chats, setChatIdDisplay }) => {
 
-   if (!chats) return
-   console.log('chats', chats);
+   // if (!chats) return
 
    const getFriendUserInfo = (userInfo) => {
       return userInfo.filter(user => user._id !== loggedInUser._id)
    }
 
    return (
-      <>
-         <div className='friends-list'>
-            <span>Friends List</span>
-            {/* {loggedInUser.friends.map(friend => <div key={friend}>{friend}</div>)} */}
-         </div>
+      <div className="side-bar">
+
+         <section className="search">
+            <input type="search" className="text-input" placeholder="Search or start new chat"></input>
+         </section>
 
          <div className='chat-list-side'>
-            <span className='title'>Chat List </span>
-
             {chats.map(chat =>
                <div className="chat-info-container" onClick={() => setChatIdDisplay(chat._id)} key={chat._id}>
                   <div className="img">
@@ -27,12 +24,12 @@ export const ChattySideBar = ({ loggedInUser, chats, setChatIdDisplay }) => {
                   </div>
                   <div className="text-container">
                      <span className='name'>{getFriendUserInfo(chat.userInfo)[0].username}</span>
-                     <span className='last-msg'>{chat.chat[chat.chat.length - 1].msg}</span>
+                     <span className='last-msg'>{chat.msgs[chat.msgs.length - 1].text}</span>
                   </div>
                </div>
             )}
          </div>
-      </>
+      </div>
    )
 
 }
